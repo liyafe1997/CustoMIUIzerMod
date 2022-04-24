@@ -343,7 +343,7 @@ public class Helpers {
 	}
 
 	public static boolean isRPlus() {
-		return Build.VERSION.SDK_INT >= 30;
+		return Build.VERSION.SDK_INT >= Build.VERSION_CODES.R;
 	}
 
 	public static boolean isDeviceEncrypted(Context context) {

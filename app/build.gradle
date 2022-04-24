@@ -28,7 +28,7 @@ android {
             v2SigningEnabled true
         }
     }
-    compileSdkVersion 29
+    compileSdk 30
     defaultConfig {
         applicationId "name.mikanoshi.customiuizer"
         minSdkVersion 24
@@ -55,7 +55,7 @@ android {
     flavorDimensions 'api'
     productFlavors {
         standalone {
-            targetSdkVersion 27
+            targetSdkVersion 29
             signingConfig signingConfigs.v1
         }
         playstore {
