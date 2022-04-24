@@ -3,43 +3,43 @@
 	android:layout_height="match_parent"
 	android:key="pref_key_various">
 
-	<name.mikanoshi.customiuizer.prefs.PreferenceEx
+	<org.strawing.customiuizermod.prefs.PreferenceEx
 		android:key="pref_key_various_hiddenfeatures_cat"
 		android:title="@string/various_hiddenfeatures_title"
 		android:summary="@string/various_hiddenfeatures_summ" />
 
-	<name.mikanoshi.customiuizer.prefs.CheckBoxPreferenceEx
+	<org.strawing.customiuizermod.prefs.CheckBoxPreferenceEx
 		android:key="pref_key_various_unlockfps"
 		android:title="@string/various_unlockfps_title"
 		android:summary="@string/various_unlockfps_summ"
 		android:defaultValue="false" />
 
-	<name.mikanoshi.customiuizer.prefs.CheckBoxPreferenceEx
+	<org.strawing.customiuizermod.prefs.CheckBoxPreferenceEx
 		android:key="pref_key_various_miuiinstaller"
 		android:title="@string/various_miuiinstaller_title"
 		android:summary="@string/various_miuiinstaller_summ"
 		android:defaultValue="false" />
 
-	<name.mikanoshi.customiuizer.prefs.CheckBoxPreferenceEx
+	<org.strawing.customiuizermod.prefs.CheckBoxPreferenceEx
 		android:key="pref_key_various_installappinfo"
 		android:title="@string/various_installappinfo_title"
 		android:summary="@string/various_installappinfo_summ"
 		android:defaultValue="false" />
 
-	<name.mikanoshi.customiuizer.prefs.CheckBoxPreferenceEx
+	<org.strawing.customiuizermod.prefs.CheckBoxPreferenceEx
 		android:key="pref_key_various_alarmcompat"
 		android:title="@string/various_alarmcompat_title"
 		android:summary="@string/various_alarmcompat_summ"
 		android:defaultValue="false" />
 
-	<name.mikanoshi.customiuizer.prefs.PreferenceEx
+	<org.strawing.customiuizermod.prefs.PreferenceEx
 		android:title="@string/system_popupnotif_apps_title"
 		android:key="pref_key_various_alarmcompat_apps"
 		android:dependency="pref_key_various_alarmcompat"
 		miuizer:child="true"
 		miuizer:countAsSummary="true" />
 
-	<name.mikanoshi.customiuizer.prefs.ListPreferenceEx
+	<org.strawing.customiuizermod.prefs.ListPreferenceEx
 		android:key="pref_key_various_collapsemiuititles"
 		android:title="@string/various_collapsemiuititles_title"
 		android:summary="@string/various_collapsemiuititles_summ"
@@ -50,7 +50,7 @@
 	<PreferenceCategory
 		android:title="@string/calls"/>
 
-	<name.mikanoshi.customiuizer.prefs.ListPreferenceEx
+	<org.strawing.customiuizermod.prefs.ListPreferenceEx
 		android:key="pref_key_various_showcallui"
 		android:title="@string/various_showcallui_title"
 		android:summary="@string/various_showcallui_summ"
@@ -58,11 +58,11 @@
 		android:entryValues="@array/incallui_val"
 		android:defaultValue="0" />
 
-	<name.mikanoshi.customiuizer.prefs.PreferenceEx
+	<org.strawing.customiuizermod.prefs.PreferenceEx
 		android:key="pref_key_various_calluibright_cat"
 		android:title="@string/various_calluibright_title" />
 
-	<name.mikanoshi.customiuizer.prefs.PreferenceEx
+	<org.strawing.customiuizermod.prefs.PreferenceEx
 		android:key="pref_key_various_callreminder_cat"
 		android:title="@string/various_callreminder_title"
 		android:summary="@string/various_callreminder_summ" />
@@ -70,25 +70,25 @@
 	<PreferenceCategory
 		android:title="@string/settings" />
 
-	<name.mikanoshi.customiuizer.prefs.CheckBoxPreferenceEx
+	<org.strawing.customiuizermod.prefs.CheckBoxPreferenceEx
 		android:key="pref_key_various_restrictapp"
 		android:summary="@string/various_restrictapp_summ"
 		android:title="@string/various_restrictapp_title"
 		android:defaultValue="false" />
 
-	<name.mikanoshi.customiuizer.prefs.CheckBoxPreferenceEx
+	<org.strawing.customiuizermod.prefs.CheckBoxPreferenceEx
 		android:key="pref_key_various_disableapp"
 		android:summary="@string/various_disableapp_summ"
 		android:title="@string/various_disableapp_title"
 		android:defaultValue="false" />
 
-	<name.mikanoshi.customiuizer.prefs.CheckBoxPreferenceEx
+	<org.strawing.customiuizermod.prefs.CheckBoxPreferenceEx
 		android:key="pref_key_various_appdetails"
 		android:summary="@string/various_apps_summ"
 		android:title="@string/various_apps_title"
 		android:defaultValue="false" />
 
-	<name.mikanoshi.customiuizer.prefs.ListPreferenceEx
+	<org.strawing.customiuizermod.prefs.ListPreferenceEx
 		android:key="pref_key_various_appsort"
 		android:summary=""
 		android:title="@string/various_appsort_title"
@@ -101,7 +101,7 @@
 	<PreferenceCategory
 		android:title="@string/gboard"/>
 
-	<name.mikanoshi.customiuizer.prefs.SeekBarPreference
+	<org.strawing.customiuizermod.prefs.SeekBarPreference
 		android:key="pref_key_various_gboardpadding_port"
 		android:title="@string/various_gboardpadding_port_title"
 		android:defaultValue="0"
@@ -111,7 +111,7 @@
 		miuizer:format="%d dip"
 		miuizer:offtext="@string/array_default" />
 
-	<name.mikanoshi.customiuizer.prefs.SeekBarPreference
+	<org.strawing.customiuizermod.prefs.SeekBarPreference
 		android:key="pref_key_various_gboardpadding_land"
 		android:title="@string/various_gboardpadding_land_title"
 		android:defaultValue="0"

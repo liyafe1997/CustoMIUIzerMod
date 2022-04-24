@@ -51,7 +51,7 @@
     java.lang.Object readResolve();
 }
 
--keep class name.mikanoshi.** { *; }
+-keep class org.strawing.** { *; }
 
 -dontwarn **
 -dontnote **

@@ -4,24 +4,24 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
 
-	<name.mikanoshi.customiuizer.prefs.CheckBoxPreferenceEx
+	<org.strawing.customiuizermod.prefs.CheckBoxPreferenceEx
 		android:key="pref_key_launcher_folderblur"
 		android:title="@string/enable_mod"
 		android:defaultValue="false" />
 
-	<name.mikanoshi.customiuizer.prefs.PreferenceCategoryEx
+	<org.strawing.customiuizermod.prefs.PreferenceCategoryEx
 		android:key="pref_key_launcher_folderbackblur"
 		android:title="@string/launcher_folderblur"
 		miuizer:dynamic="true">
 
-		<name.mikanoshi.customiuizer.prefs.CheckBoxPreferenceEx
+		<org.strawing.customiuizermod.prefs.CheckBoxPreferenceEx
 			android:key="pref_key_launcher_folderblur_disable"
 			android:title="@string/array_disable"
 			android:defaultValue="false"
 			android:disableDependentsState="true"
 			android:dependency="pref_key_launcher_folderblur" />
 
-		<name.mikanoshi.customiuizer.prefs.SeekBarPreference
+		<org.strawing.customiuizermod.prefs.SeekBarPreference
 			android:key="pref_key_launcher_folderblur_opacity"
 			android:title="@string/launcher_folderblur_opacity_title"
 			android:dependency="pref_key_launcher_folderblur_disable"
@@ -32,7 +32,7 @@
 			miuizer:format="%d%%"
 			miuizer:offtext="@string/array_default" />
 
-		<name.mikanoshi.customiuizer.prefs.SeekBarPreference
+		<org.strawing.customiuizermod.prefs.SeekBarPreference
 			android:key="pref_key_launcher_folderblur_radius"
 			android:title="@string/launcher_folderblur_radius_title"
 			android:dependency="pref_key_launcher_folderblur_disable"
@@ -43,21 +43,21 @@
 			miuizer:format="%d%%"
 			miuizer:offtext="@string/array_default" />
 
-	</name.mikanoshi.customiuizer.prefs.PreferenceCategoryEx>
+	</org.strawing.customiuizermod.prefs.PreferenceCategoryEx>
 
-	<name.mikanoshi.customiuizer.prefs.PreferenceCategoryEx
+	<org.strawing.customiuizermod.prefs.PreferenceCategoryEx
 		android:key="pref_key_launcher_folderwallblur"
 		android:title="@string/launcher_folderwallblur"
 		miuizer:dynamic="true">
 
-		<name.mikanoshi.customiuizer.prefs.CheckBoxPreferenceEx
+		<org.strawing.customiuizermod.prefs.CheckBoxPreferenceEx
 			android:key="pref_key_launcher_folderwallblur_disable"
 			android:title="@string/array_disable"
 			android:defaultValue="false"
 			android:disableDependentsState="true"
 			android:dependency="pref_key_launcher_folderblur" />
 
-		<name.mikanoshi.customiuizer.prefs.SeekBarPreference
+		<org.strawing.customiuizermod.prefs.SeekBarPreference
 			android:key="pref_key_launcher_folderwallblur_radius"
 			android:title="@string/launcher_folderblur_radius_title"
 			android:summary="@string/launcher_folderwallblur_radius_summ"
@@ -69,6 +69,6 @@
 			miuizer:format="%d%%"
 			miuizer:offtext="@string/array_default" />
 
-	</name.mikanoshi.customiuizer.prefs.PreferenceCategoryEx>
+	</org.strawing.customiuizermod.prefs.PreferenceCategoryEx>
 
 </PreferenceScreen>

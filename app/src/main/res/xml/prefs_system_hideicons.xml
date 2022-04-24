@@ -4,30 +4,30 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
 
-	<name.mikanoshi.customiuizer.prefs.CheckBoxPreferenceEx
+	<org.strawing.customiuizermod.prefs.CheckBoxPreferenceEx
 		android:key="pref_key_system_statusbaricons_battery1"
 		android:title="@string/system_statusbaricons_battery1_title"
 		android:defaultValue="false" />
 
-	<name.mikanoshi.customiuizer.prefs.CheckBoxPreferenceEx
+	<org.strawing.customiuizermod.prefs.CheckBoxPreferenceEx
 		android:key="pref_key_system_statusbaricons_battery2"
 		android:title="@string/system_statusbaricons_battery2_title"
 		android:summary="@string/system_statusbaricons_battery_summ"
 		android:defaultValue="false" />
 
-	<name.mikanoshi.customiuizer.prefs.CheckBoxPreferenceEx
+	<org.strawing.customiuizermod.prefs.CheckBoxPreferenceEx
 		android:key="pref_key_system_statusbaricons_battery3"
 		android:title="@string/system_statusbaricons_battery3_title"
 		android:defaultValue="false" />
 
-	<name.mikanoshi.customiuizer.prefs.CheckBoxPreferenceEx
+	<org.strawing.customiuizermod.prefs.CheckBoxPreferenceEx
 		android:key="pref_key_system_statusbaricons_alarm"
 		android:title="@string/system_statusbaricons_alarm_title"
 		android:summary="@string/system_statusbaricons_alarm_summ"
 		android:defaultValue="false"
 		android:disableDependentsState="true" />
 
-	<name.mikanoshi.customiuizer.prefs.SeekBarPreference
+	<org.strawing.customiuizermod.prefs.SeekBarPreference
 		android:key="pref_key_system_statusbaricons_alarmn"
 		android:title="@string/system_statusbaricons_alarmn_title"
 		android:summary="@string/system_statusbaricons_alarmn_summ"
@@ -39,79 +39,79 @@
 		miuizer:stepValue="1"
 		miuizer:format="%d" />
 
-	<name.mikanoshi.customiuizer.prefs.ListPreferenceEx
+	<org.strawing.customiuizermod.prefs.ListPreferenceEx
 		android:key="pref_key_system_statusbaricons_bluetooth"
 		android:title="@string/array_global_toggle_bt"
 		android:entries="@array/selectivebt"
 		android:entryValues="@array/selectivebt_val"
 		android:defaultValue="1" />
 
-	<name.mikanoshi.customiuizer.prefs.CheckBoxPreferenceEx
+	<org.strawing.customiuizermod.prefs.CheckBoxPreferenceEx
 		android:key="pref_key_system_statusbaricons_signal"
 		android:title="@string/system_statusbaricons_signal_title"
 		android:defaultValue="false" />
 
-	<name.mikanoshi.customiuizer.prefs.CheckBoxPreferenceEx
+	<org.strawing.customiuizermod.prefs.CheckBoxPreferenceEx
 		android:key="pref_key_system_statusbaricons_nosims"
 		android:title="@string/system_statusbaricons_nosims_title"
 		android:defaultValue="false" />
 
-	<name.mikanoshi.customiuizer.prefs.CheckBoxPreferenceEx
+	<org.strawing.customiuizermod.prefs.CheckBoxPreferenceEx
 		android:key="pref_key_system_statusbaricons_wifi"
 		android:title="@string/array_global_toggle_wifi"
 		android:defaultValue="false" />
 
-	<name.mikanoshi.customiuizer.prefs.CheckBoxPreferenceEx
+	<org.strawing.customiuizermod.prefs.CheckBoxPreferenceEx
 		android:key="pref_key_system_statusbaricons_vowifi"
 		android:title="@string/system_statusbaricons_vowifi_title"
 		android:defaultValue="false" />
 
-	<name.mikanoshi.customiuizer.prefs.CheckBoxPreferenceEx
+	<org.strawing.customiuizermod.prefs.CheckBoxPreferenceEx
 		android:key="pref_key_system_statusbaricons_volte"
 		android:title="@string/system_statusbaricons_volte_title"
 		android:defaultValue="false" />
 
-	<name.mikanoshi.customiuizer.prefs.CheckBoxPreferenceEx
+	<org.strawing.customiuizermod.prefs.CheckBoxPreferenceEx
 		android:key="pref_key_system_statusbaricons_vpn"
 		android:title="@string/system_statusbaricons_vpn_title"
 		android:defaultValue="false" />
 
-	<name.mikanoshi.customiuizer.prefs.CheckBoxPreferenceEx
+	<org.strawing.customiuizermod.prefs.CheckBoxPreferenceEx
 		android:key="pref_key_system_statusbaricons_hotspot"
 		android:title="@string/system_statusbaricons_hotspot_title"
 		android:defaultValue="false" />
 
-	<name.mikanoshi.customiuizer.prefs.CheckBoxPreferenceEx
+	<org.strawing.customiuizermod.prefs.CheckBoxPreferenceEx
 		android:key="pref_key_system_statusbaricons_profile"
 		android:title="@string/system_statusbaricons_profile_title"
 		android:defaultValue="false" />
 
-	<name.mikanoshi.customiuizer.prefs.CheckBoxPreferenceEx
+	<org.strawing.customiuizermod.prefs.CheckBoxPreferenceEx
 		android:key="pref_key_system_statusbaricons_sound"
 		android:title="@string/system_statusbaricons_sound_title"
 		android:defaultValue="false" />
 
-	<name.mikanoshi.customiuizer.prefs.CheckBoxPreferenceEx
+	<org.strawing.customiuizermod.prefs.CheckBoxPreferenceEx
 		android:key="pref_key_system_statusbaricons_dnd"
 		android:title="@string/system_statusbaricons_dnd_title"
 		android:defaultValue="false" />
 
-	<name.mikanoshi.customiuizer.prefs.CheckBoxPreferenceEx
+	<org.strawing.customiuizermod.prefs.CheckBoxPreferenceEx
 		android:key="pref_key_system_statusbaricons_headset"
 		android:title="@string/system_statusbaricons_headset_title"
 		android:defaultValue="false" />
 
-	<name.mikanoshi.customiuizer.prefs.CheckBoxPreferenceEx
+	<org.strawing.customiuizermod.prefs.CheckBoxPreferenceEx
 		android:key="pref_key_system_statusbaricons_mute"
 		android:title="@string/system_statusbaricons_mute_title"
 		android:defaultValue="false" />
 
-	<name.mikanoshi.customiuizer.prefs.CheckBoxPreferenceEx
+	<org.strawing.customiuizermod.prefs.CheckBoxPreferenceEx
 		android:key="pref_key_system_statusbaricons_speaker"
 		android:title="@string/system_statusbaricons_speaker_title"
 		android:defaultValue="false" />
 
-	<name.mikanoshi.customiuizer.prefs.CheckBoxPreferenceEx
+	<org.strawing.customiuizermod.prefs.CheckBoxPreferenceEx
 		android:key="pref_key_system_statusbaricons_record"
 		android:title="@string/system_statusbaricons_record_title"
 		android:defaultValue="false" />

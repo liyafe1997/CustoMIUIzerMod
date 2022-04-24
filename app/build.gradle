@@ -30,12 +30,12 @@ android {
     }
     compileSdk 30
     defaultConfig {
-        applicationId "name.mikanoshi.customiuizer"
+        applicationId "org.strawing.customiuizermod"
         minSdkVersion 24
         //noinspection OldTargetApi,ExpiredTargetSdkVersion
         targetSdkVersion 27
         versionCode 71
-        versionName "3.2.1"
+        versionName "1.0.3.2.1"
         resConfigs 'ru-rRU', 'uk-rUK', 'zh-rCN', 'pt-rBR', 'de', 'es', 'it', 'tr'
     }
     buildTypes {

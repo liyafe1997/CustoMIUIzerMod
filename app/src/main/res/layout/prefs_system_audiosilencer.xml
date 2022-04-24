@@ -25,7 +25,7 @@
 		android:text="@string/system_audiosilencer_silenced"
 		style="@style/Widget.InputField.Category.First" />
 
-	<name.mikanoshi.customiuizer.prefs.ListViewEx
+	<org.strawing.customiuizermod.prefs.ListViewEx
 		android:id="@android:id/text1"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
 		android:text="@string/system_audiosilencer_played"
 		style="@style/Widget.InputField.Category.First" />
 
-	<name.mikanoshi.customiuizer.prefs.ListViewEx
+	<org.strawing.customiuizermod.prefs.ListViewEx
 		android:id="@android:id/text2"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"

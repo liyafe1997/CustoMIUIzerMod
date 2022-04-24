@@ -4,50 +4,50 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
 
-	<name.mikanoshi.customiuizer.prefs.CheckBoxPreferenceEx
+	<org.strawing.customiuizermod.prefs.CheckBoxPreferenceEx
 		android:key="pref_key_system_lockscreenshortcuts"
 		android:title="@string/enable_mod"
 		android:defaultValue="false" />
 
-	<name.mikanoshi.customiuizer.prefs.PreferenceCategoryEx
+	<org.strawing.customiuizermod.prefs.PreferenceCategoryEx
 		android:title="@string/settings"
 		miuizer:dynamic="true">
 
-		<name.mikanoshi.customiuizer.prefs.CheckBoxPreferenceEx
+		<org.strawing.customiuizermod.prefs.CheckBoxPreferenceEx
 			android:key="pref_key_system_lockscreenshortcuts_right_off"
 			android:title="@string/system_lockscreenshortcuts_right_off_title"
 			android:dependency="pref_key_system_lockscreenshortcuts"
 			android:disableDependentsState="true"
 			android:defaultValue="false" />
 
-		<name.mikanoshi.customiuizer.prefs.PreferenceEx
+		<org.strawing.customiuizermod.prefs.PreferenceEx
 			android:key="pref_key_system_lockscreenshortcuts_right"
 			android:title="@string/system_lockscreenshortcuts_right_title"
 			android:dependency="pref_key_system_lockscreenshortcuts_right_off"
 			android:defaultValue="false" />
 
-		<name.mikanoshi.customiuizer.prefs.CheckBoxPreferenceEx
+		<org.strawing.customiuizermod.prefs.CheckBoxPreferenceEx
 			android:key="pref_key_system_lockscreenshortcuts_right_image"
 			android:title="@string/system_lockscreenshortcuts_right_image_title"
 			android:summary="@string/system_lockscreenshortcuts_right_image_summ"
 			android:dependency="pref_key_system_lockscreenshortcuts_right_off"
 			android:defaultValue="false" />
 
-		<name.mikanoshi.customiuizer.prefs.CheckBoxPreferenceEx
+		<org.strawing.customiuizermod.prefs.CheckBoxPreferenceEx
 			android:key="pref_key_system_lockscreenshortcuts_left_off"
 			android:title="@string/system_lockscreenshortcuts_left_off_title"
 			android:dependency="pref_key_system_lockscreenshortcuts"
 			android:disableDependentsState="true"
 			android:defaultValue="false" />
 
-		<name.mikanoshi.customiuizer.prefs.PreferenceEx
+		<org.strawing.customiuizermod.prefs.PreferenceEx
 			android:key="pref_key_system_lockscreenshortcuts_left"
 			android:title="@string/system_lockscreenshortcuts_left_title"
 			android:summary="@string/system_lockscreenshortcuts_left_summ"
 			android:dependency="pref_key_system_lockscreenshortcuts_left_off"
 			android:defaultValue="false" />
 
-		<name.mikanoshi.customiuizer.prefs.ListPreferenceEx
+		<org.strawing.customiuizermod.prefs.ListPreferenceEx
 			android:key="pref_key_system_lockscreenshortcuts_left_align"
 			android:title="@string/system_lockscreenshortcuts_left_align_title"
 			android:dependency="pref_key_system_lockscreenshortcuts_left_off"
@@ -55,20 +55,20 @@
 			android:entryValues="@array/verticalalign_val"
 			android:defaultValue="2" />
 
-		<name.mikanoshi.customiuizer.prefs.CheckBoxPreferenceEx
+		<org.strawing.customiuizermod.prefs.CheckBoxPreferenceEx
 			android:key="pref_key_system_lockscreenshortcuts_left_center"
 			android:title="@string/system_lockscreenshortcuts_left_center_title"
 			android:dependency="pref_key_system_lockscreenshortcuts_left_off"
 			android:disableDependentsState="true"
 			android:defaultValue="false" />
 
-		<name.mikanoshi.customiuizer.prefs.CheckBoxPreferenceEx
+		<org.strawing.customiuizermod.prefs.CheckBoxPreferenceEx
 			android:key="pref_key_system_lockscreenshortcuts_left_skiplock"
 			android:title="@string/system_lockscreenshortcuts_left_skiplock_title"
 			android:summary="@string/system_lockscreenshortcuts_left_skiplock_summ"
 			android:dependency="pref_key_system_lockscreenshortcuts_left_off"
 			android:defaultValue="false" />
 
-	</name.mikanoshi.customiuizer.prefs.PreferenceCategoryEx>
+	</org.strawing.customiuizermod.prefs.PreferenceCategoryEx>
 
 </PreferenceScreen>

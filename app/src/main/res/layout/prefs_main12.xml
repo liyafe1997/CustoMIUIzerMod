@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<name.mikanoshi.customiuizer.utils.NestedHeaderLayout
+<org.strawing.customiuizermod.utils.NestedHeaderLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:id="@+id/nestedLayout"
 	android:layout_width="match_parent"
@@ -28,4 +28,4 @@
 		android:drawSelectorOnTop="false"
 		android:scrollbarAlwaysDrawVerticalTrack="false" />
 
-</name.mikanoshi.customiuizer.utils.NestedHeaderLayout>
+</org.strawing.customiuizermod.utils.NestedHeaderLayout>
