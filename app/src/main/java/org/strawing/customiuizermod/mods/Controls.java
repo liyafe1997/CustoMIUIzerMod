@@ -458,29 +458,22 @@ public class Controls {
         boolean hasLeftAction = MainModule.mPrefs.getInt("controls_navbarleft_action", 1) > 1 || MainModule.mPrefs.getInt("controls_navbarleftlong_action", 1) > 1;
         boolean hasRightAction = MainModule.mPrefs.getInt("controls_navbarright_action", 1) > 1 || MainModule.mPrefs.getInt("controls_navbarrightlong_action", 1) > 1;
 
-
         if (Helpers.isRPlus() && Helpers.is125()) {
             Resources mResources = mContext.getResources();
             LinearLayout endsGroup = navButtons.findViewById(mResources.getIdentifier("ends_group", "id", "com.android.systemui"));
             LinearLayout center_group = navButtons.findViewById(mResources.getIdentifier("center_group", "id", "com.android.systemui"));
-            if (isVertical) {
-                if (hasRightAction) {
-                    navButtons.addView(rightbtn, navButtons.getChildCount());
 
-                }
-                if (hasLeftAction) {
-                    center_group.addView(leftbtn, 0);
-                }
-            } else {
-                if (hasLeftAction) {
-                    endsGroup.getChildAt(0).setVisibility(View.GONE);
-                    endsGroup.addView(leftbtn, 0);
-                }
-                if (hasRightAction) {
-                    endsGroup.getChildAt(endsGroup.getChildCount() - 1).setVisibility(View.GONE);
-                    endsGroup.addView(rightbtn, -1);
-                }
+            if (hasLeftAction) {
+                // Hide the empty space view. Give the space for custom button.
+                endsGroup.getChildAt(0).setVisibility(View.GONE);
+                endsGroup.addView(leftbtn, 0);
             }
+            if (hasRightAction) {
+                // Hide the empty space view. Give the space for custom button.
+                endsGroup.getChildAt(endsGroup.getChildCount() - 1).setVisibility(View.GONE);
+                endsGroup.addView(rightbtn, -1);
+            }
+
         } else {
             View startPadding = navButtons.findViewById(navButtons.getResources().getIdentifier("start_padding", "id", pkgName));
             View sidePadding = navButtons.findViewById(navButtons.getResources().getIdentifier("side_padding", "id", pkgName));
@@ -545,6 +538,43 @@ public class Controls {
                     });
 
 
+            Helpers.hookAllConstructors("com.android.systemui.statusbar.phone.NavigationBarView", lpparam.classLoader, new MethodHook() {
+                @Override
+                protected void after(MethodHookParam param) throws Throwable {
+                    FrameLayout navbar = (FrameLayout) param.thisObject;
+                    Object mBarTransitions = XposedHelpers.getObjectField(param.thisObject, "mBarTransitions");
+                    Object mLightTransitionsController = XposedHelpers.getObjectField(mBarTransitions, "mLightTransitionsController");
+                    Method setIconsDark = mLightTransitionsController.getClass().getMethod("setIconsDark", boolean.class, boolean.class);
+                    Helpers.hookMethod(setIconsDark, new MethodHook() {
+                        @Override
+                        protected void before(MethodHookParam param) throws Throwable {
+                            boolean isDark = (boolean) param.args[0];
+                            ImageView hleft = navbar.findViewWithTag("custom_left_horiz");
+                            ImageView vleft = navbar.findViewWithTag("custom_left_vert");
+                            ImageView hright = navbar.findViewWithTag("custom_right_horiz");
+                            ImageView vright = navbar.findViewWithTag("custom_right_vert");
+                            Context modCtx = Helpers.getModuleContext(navbar.getContext());
+                            Resources modRes = Helpers.getModuleRes(navbar.getContext());
+                            if (isDark) {
+                                Drawable darkImg1 = modRes.getDrawable(R.drawable.ic_sysbar_dot_bottomleft_dark, modCtx.getTheme());
+                                Drawable darkImg2 = modRes.getDrawable(R.drawable.ic_sysbar_dot_topright_dark, modCtx.getTheme());
+                                if (hleft != null) hleft.setImageDrawable(darkImg1);
+                                if (vleft != null) vleft.setImageDrawable(darkImg1);
+                                if (hright != null) hright.setImageDrawable(darkImg2);
+                                if (vright != null) vright.setImageDrawable(darkImg2);
+                            } else {
+                                Drawable lightImg1 = modRes.getDrawable(R.drawable.ic_sysbar_dot_bottomleft, modCtx.getTheme());
+                                Drawable lightImg2 = modRes.getDrawable(R.drawable.ic_sysbar_dot_topright, modCtx.getTheme());
+                                if (hleft != null) hleft.setImageDrawable(lightImg1);
+                                if (vleft != null) vleft.setImageDrawable(lightImg1);
+                                if (hright != null) hright.setImageDrawable(lightImg2);
+                                if (vright != null) vright.setImageDrawable(lightImg2);
+                            }
+                        }
+
+                    });
+                }
+            });
             return;
         }
 
