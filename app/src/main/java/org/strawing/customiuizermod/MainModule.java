@@ -256,7 +256,7 @@ public class MainModule implements IXposedHookZygoteInit, IXposedHookLoadPackage
 			if (mPrefs.getBoolean("system_hideqs")) System.HideQSHook(lpparam);
 			if (mPrefs.getBoolean("system_lsalarm")) System.LockScreenAlaramHook(lpparam);
 			if (mPrefs.getBoolean("system_statusbarcontrols")) System.StatusBarGesturesHook(lpparam);
-			if (mPrefs.getBoolean("system_screenshot")) System.ScreenshotConfigHook(lpparam);
+			if (mPrefs.getBoolean("system_screenshot")) System.ScreenshotConfigHook(lpparam, false);
 			if (mPrefs.getBoolean("system_nodrawerbackground")) System.RemoveDrawerBackgroundHook(lpparam);
 			if (mPrefs.getBoolean("system_nonetspeedseparator")) System.NoNetworkSpeedSeparatorHook(lpparam);
 			if (mPrefs.getBoolean("system_snoozedmanager")) System.MoreSnoozeOptionsHook(lpparam);
@@ -369,6 +369,10 @@ public class MainModule implements IXposedHookZygoteInit, IXposedHookLoadPackage
 		if (pkg.equals("com.miui.screenrecorder")) {
 			if (mPrefs.getBoolean("various_unlockfps")) Various.ScreenRecorderFramerateHook(lpparam);
 		}
+		if (pkg.equals("com.miui.screenshot")) {
+			if (mPrefs.getBoolean("system_screenshot")) System.ScreenshotConfigHook(lpparam, true);
+		}
+		
 
 		final boolean isMIUILauncherPkg = pkg.equals("com.miui.home");
 		final boolean isLauncherPkg = isMIUILauncherPkg || pkg.equals("com.mi.android.globallauncher");

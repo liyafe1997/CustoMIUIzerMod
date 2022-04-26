@@ -516,7 +516,6 @@ public class Controls {
                     "inflateLayout", String.class, new MethodHook() {
                         @Override
                         protected void after(MethodHookParam param) throws Throwable {
-                            Helpers.log("NavBarButtonsHook", "2222");
 
                             Class<?> kbrCls = XposedHelpers.findClassIfExists(
                                     "com.android.systemui.statusbar.policy.KeyButtonRipple", lpparam.classLoader);

@@ -931,5 +931,6 @@
 		<item>com.xiaomi.misettings</item>
 		<item>eu.xiaomi.ext</item>
 		<item>org.meowcat.edxposed.manager</item>
+		<item>com.miui.screenshot</item>
 	</string-array>
 </resources>
