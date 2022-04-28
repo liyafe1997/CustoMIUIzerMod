@@ -166,6 +166,7 @@ import de.robv.android.xposed.XC_MethodHook.MethodHookParam;
 import de.robv.android.xposed.XC_MethodReplacement;
 import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.XposedHelpers;
+
 import static de.robv.android.xposed.XposedHelpers.findClass;
 import static de.robv.android.xposed.XposedHelpers.findClassIfExists;
 import static de.robv.android.xposed.XposedHelpers.findMethodExactIfExists;
@@ -180,6 +181,7 @@ import org.strawing.customiuizermod.utils.Helpers;
 import org.strawing.customiuizermod.utils.Helpers.MethodHook;
 import org.strawing.customiuizermod.utils.Helpers.MimeType;
 import org.strawing.customiuizermod.utils.SoundData;
+
 import static org.strawing.customiuizermod.mods.GlobalActions.ACTION_PREFIX;
 
 import org.json.JSONObject;
@@ -1528,14 +1530,18 @@ public class System {
         long tx = -1L;
         long rx = -1L;
 
-        try {
+        try {/*
             for (Enumeration<NetworkInterface> list = NetworkInterface.getNetworkInterfaces(); list.hasMoreElements(); ) {
                 NetworkInterface iface = list.nextElement();
                 if (iface.isUp() && !iface.isVirtual() && !iface.isLoopback() && !iface.isPointToPoint() && !"".equals(iface.getName())) {
+
                     tx += (long) XposedHelpers.callStaticMethod(TrafficStats.class, "getTxBytes", iface.getName());
                     rx += (long) XposedHelpers.callStaticMethod(TrafficStats.class, "getRxBytes", iface.getName());
+
                 }
-            }
+            }*/
+            tx += (long) XposedHelpers.callStaticMethod(TrafficStats.class, "getTotalTxBytes");
+            rx += (long) XposedHelpers.callStaticMethod(TrafficStats.class, "getTotalRxBytes");
             return new Pair<Long, Long>(tx, rx);
         } catch (Throwable t) {
             XposedBridge.log(t);
@@ -1599,8 +1605,55 @@ public class System {
     }
 
     public static void DetailedNetSpeedHook(LoadPackageParam lpparam) {
-        Helpers.hookAllMethods("com.android.systemui.statusbar.NetworkSpeedView", lpparam.classLoader, "onTextChanged", XC_MethodReplacement.DO_NOTHING);
-        Helpers.hookAllConstructors("com.android.systemui.statusbar.NetworkSpeedView", lpparam.classLoader, new MethodHook() {
+        String NetworkSpeedView_classname = "com.android.systemui.statusbar.NetworkSpeedView";
+        if (Helpers.is125() && Helpers.isRPlus()) {
+            NetworkSpeedView_classname = "com.android.systemui.statusbar.views.NetworkSpeedView";
+        }
+
+
+        if (!(Helpers.is125() && Helpers.isRPlus())) { //Only Android 10 and below need to do this
+            Helpers.hookAllMethods(NetworkSpeedView_classname, lpparam.classLoader, "onTextChanged", XC_MethodReplacement.DO_NOTHING);
+        }
+
+        if (Helpers.is125() && Helpers.isRPlus()) { //Android 11 & MIUI12.5 Need to hook Statusbar in Screen Lock interface, to set front size
+            Helpers.findAndHookMethod("com.android.systemui.statusbar.phone.MiuiKeyguardStatusBarView", lpparam.classLoader, "onDensityOrFontScaleChanged", new MethodHook() {
+                @Override
+                protected void after(final MethodHookParam param) throws Throwable {
+                    TextView meter = (TextView) XposedHelpers.getObjectField(param.thisObject, "mNetworkSpeedView");
+
+                    float density = meter.getResources().getDisplayMetrics().density;
+                    int font = Integer.parseInt(MainModule.mPrefs.getString("system_detailednetspeed_font", "3"));
+                    int icons = Integer.parseInt(MainModule.mPrefs.getString("system_detailednetspeed_icon", "2"));
+                    float size = 8.0f;
+                    float spacing = 0.7f;
+                    int top = 0;
+                    switch (font) {
+                        case 1:
+                            size = 10.0f;
+                            spacing = 0.75f;
+                            top = Math.round(density);
+                            break;
+                        case 2:
+                            size = 9.0f;
+                            break;
+                        case 3:
+                            size = 8.0f;
+                            break;
+                        case 4:
+                            size = 7.0f;
+                            break;
+                    }
+                    meter.setTextSize(TypedValue.COMPLEX_UNIT_DIP, size);
+                    meter.setSingleLine(false);
+                    meter.setLines(2);
+                    meter.setMaxLines(2);
+                    meter.setLineSpacing(0, icons == 1 ? 0.85f : spacing);
+                    meter.setPadding(Math.round(meter.getPaddingLeft() + 3 * density), meter.getPaddingTop() - top, meter.getPaddingRight(), meter.getPaddingBottom());
+                }
+            });
+        }
+
+        Helpers.hookAllConstructors(NetworkSpeedView_classname, lpparam.classLoader, new MethodHook() {
             @Override
             protected void after(final MethodHookParam param) throws Throwable {
                 TextView meter = (TextView) param.thisObject;
@@ -1643,24 +1696,72 @@ public class System {
             return;
         }
 
-        Helpers.hookAllConstructors(nscCls, new MethodHook() {
-            @Override
-            protected void after(final MethodHookParam param) throws Throwable {
-                Handler mHandler = new Handler(Looper.getMainLooper()) {
-                    public void handleMessage(Message message) {
-                        if (message.what == 200000) try {
-                            boolean show = message.arg1 != 0;
-                            XposedHelpers.callMethod(param.thisObject, "setVisibilityToViewList", show ? View.VISIBLE : View.GONE);
-                            if (show)
-                                XposedHelpers.callMethod(param.thisObject, "setTextToViewList", "-");
-                        } catch (Throwable t) {
-                            XposedBridge.log(t);
+        if (!(Helpers.is125() && Helpers.isRPlus())) { //Only Android 10 and below need to do this
+            Helpers.hookAllConstructors(nscCls, new MethodHook() {
+                @Override
+                protected void after(final MethodHookParam param) throws Throwable {
+                    Handler mHandler = new Handler(Looper.getMainLooper()) {
+                        public void handleMessage(Message message) {
+                            if (message.what == 200000) try {
+                                boolean show = message.arg1 != 0;
+                                XposedHelpers.callMethod(param.thisObject, "setVisibilityToViewList", show ? View.VISIBLE : View.GONE);
+                                if (show)
+                                    XposedHelpers.callMethod(param.thisObject, "setTextToViewList", "-");
+                            } catch (Throwable t) {
+                                XposedBridge.log(t);
+                            }
                         }
+                    };
+                    XposedHelpers.setObjectField(param.thisObject, "mHandler", mHandler);
+                }
+            });
+        }
+
+        Helpers.findAndHookMethod(nscCls, "updateText", String.class, new MethodHook() {
+            @Override
+            protected void before(final MethodHookParam param) throws Throwable {
+                Context mContext = (Context) XposedHelpers.getObjectField(param.thisObject, "mContext");
+                boolean hideLow = MainModule.mPrefs.getBoolean("system_detailednetspeed_low");
+                boolean reduceVis = MainModule.mPrefs.getBoolean("system_detailednetspeed_zero");
+                int lowLevel = MainModule.mPrefs.getInt("system_detailednetspeed_lowlevel", 1) * 1024;
+                int icons = Integer.parseInt(MainModule.mPrefs.getString("system_detailednetspeed_icon", "2"));
+
+                String txarrow = "";
+                String rxarrow = "";
+                if (icons == 2) {
+                    txarrow = txSpeed < lowLevel ? "△" : "▲";
+                    rxarrow = rxSpeed < lowLevel ? "▽" : "▼";
+                } else if (icons == 3) {
+                    txarrow = txSpeed < lowLevel ? " ☖" : " ☗";
+                    rxarrow = rxSpeed < lowLevel ? " ⛉" : " ⛊";
+                }
+
+                String tx = hideLow && txSpeed < lowLevel ? "" : humanReadableByteCount(mContext, txSpeed) + txarrow;
+                String rx = hideLow && rxSpeed < lowLevel ? "" : humanReadableByteCount(mContext, rxSpeed) + rxarrow;
+                param.args[0] = tx + "\n" + rx;
+                if (reduceVis) try {
+                    CopyOnWriteArrayList<?> mViewList = (CopyOnWriteArrayList<?>) XposedHelpers.getObjectField(param.thisObject, "mViewList");
+                    for (Object tv : mViewList)
+                        if (tv != null)
+                            ((TextView) tv).setAlpha(rxSpeed == 0 && txSpeed == 0 ? 0.3f : 1.0f);
+                } catch (Throwable t1) {
+                    try {
+                        ArrayList<?> mViewList = (ArrayList<?>) XposedHelpers.getObjectField(param.thisObject, "mViewList");
+                        for (Object tv : mViewList)
+                            if (tv != null)
+                                ((TextView) tv).setAlpha(rxSpeed == 0 && txSpeed == 0 ? 0.3f : 1.0f);
+                    } catch (Throwable t2) {
+                        ArrayList<?> sViewList = (ArrayList<?>) XposedHelpers.getObjectField(param.thisObject, "sViewList");
+                        for (Object tv : sViewList)
+                            if (tv != null)
+                                ((TextView) tv).setAlpha(rxSpeed == 0 && txSpeed == 0 ? 0.3f : 1.0f);
                     }
-                };
-                XposedHelpers.setObjectField(param.thisObject, "mHandler", mHandler);
+                }
+                //Helpers.log("DetailedNetSpeedHook", "setTextToViewList: " + tx + ", " + rx);
+                //Helpers.log("DetailedNetSpeedHook", "class: " + param.thisObject.getClass().getSimpleName());
             }
         });
+
 
         Helpers.findAndHookMethod(nscCls, "getTotalByte", new MethodHook() {
             @Override
@@ -1705,50 +1806,6 @@ public class System {
             }
         });
 
-        Helpers.findAndHookMethod(nscCls, "setTextToViewList", CharSequence.class, new MethodHook() {
-            @Override
-            protected void before(final MethodHookParam param) throws Throwable {
-                Context mContext = (Context) XposedHelpers.getObjectField(param.thisObject, "mContext");
-                boolean hideLow = MainModule.mPrefs.getBoolean("system_detailednetspeed_low");
-                boolean reduceVis = MainModule.mPrefs.getBoolean("system_detailednetspeed_zero");
-                int lowLevel = MainModule.mPrefs.getInt("system_detailednetspeed_lowlevel", 1) * 1024;
-                int icons = Integer.parseInt(MainModule.mPrefs.getString("system_detailednetspeed_icon", "2"));
-
-                String txarrow = "";
-                String rxarrow = "";
-                if (icons == 2) {
-                    txarrow = txSpeed < lowLevel ? "△" : "▲";
-                    rxarrow = rxSpeed < lowLevel ? "▽" : "▼";
-                } else if (icons == 3) {
-                    txarrow = txSpeed < lowLevel ? " ☖" : " ☗";
-                    rxarrow = rxSpeed < lowLevel ? " ⛉" : " ⛊";
-                }
-
-                String tx = hideLow && txSpeed < lowLevel ? "" : humanReadableByteCount(mContext, txSpeed) + txarrow;
-                String rx = hideLow && rxSpeed < lowLevel ? "" : humanReadableByteCount(mContext, rxSpeed) + rxarrow;
-                param.args[0] = tx + "\n" + rx;
-                if (reduceVis) try {
-                    CopyOnWriteArrayList<?> mViewList = (CopyOnWriteArrayList<?>) XposedHelpers.getObjectField(param.thisObject, "mViewList");
-                    for (Object tv : mViewList)
-                        if (tv != null)
-                            ((TextView) tv).setAlpha(rxSpeed == 0 && txSpeed == 0 ? 0.3f : 1.0f);
-                } catch (Throwable t1) {
-                    try {
-                        ArrayList<?> mViewList = (ArrayList<?>) XposedHelpers.getObjectField(param.thisObject, "mViewList");
-                        for (Object tv : mViewList)
-                            if (tv != null)
-                                ((TextView) tv).setAlpha(rxSpeed == 0 && txSpeed == 0 ? 0.3f : 1.0f);
-                    } catch (Throwable t2) {
-                        ArrayList<?> sViewList = (ArrayList<?>) XposedHelpers.getObjectField(param.thisObject, "sViewList");
-                        for (Object tv : sViewList)
-                            if (tv != null)
-                                ((TextView) tv).setAlpha(rxSpeed == 0 && txSpeed == 0 ? 0.3f : 1.0f);
-                    }
-                }
-                //Helpers.log("DetailedNetSpeedHook", "setTextToViewList: " + tx + ", " + rx);
-                //Helpers.log("DetailedNetSpeedHook", "class: " + param.thisObject.getClass().getSimpleName());
-            }
-        });
     }
 
     private static Bitmap processAlbumArt(Context context, Bitmap bitmap) {
@@ -6357,11 +6414,9 @@ public class System {
         String SaveImageInBackgroundTask_classname = "com.android.systemui.screenshot.SaveImageInBackgroundTask";
         if (Helpers.is125() && Helpers.isRPlus()) {
             if (isInMIUIScreenshotAPK == false) {
-                Helpers.log("ScreenshotConfigHook", "RETURN");
                 return;
             }
             SaveImageInBackgroundTask_classname = "com.miui.screenshot.SaveImageInBackgroundTask";
-            Helpers.log("ScreenshotConfigHook", "MIUI R+ Screenshot Config");
         }
         Helpers.hookAllConstructors(SaveImageInBackgroundTask_classname, lpparam.classLoader, new MethodHook() {
             @Override
