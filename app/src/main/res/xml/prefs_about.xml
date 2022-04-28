@@ -10,14 +10,18 @@
 			android:title="@string/support_repo_title"
 			android:summary="@string/support_repo_summ"
 			android:key="pref_key_website" />
-		<org.strawing.customiuizermod.prefs.PreferenceEx
+			<org.strawing.customiuizermod.prefs.PreferenceEx
+			android:title="@string/support_repo_original_title"
+			android:summary="@string/support_repo_original_summ"
+			android:key="pref_key_original_website" />
+		<!-- <org.strawing.customiuizermod.prefs.PreferenceEx
 			android:title="@string/support_xda_title"
 			android:summary="@string/support_xda_summ"
 			android:key="pref_key_xda" />
 		<org.strawing.customiuizermod.prefs.PreferenceEx
 			android:title="@string/support_4pda_title"
 			android:summary="@string/support_4pda_summ"
-			android:key="pref_key_4pda" />
+			android:key="pref_key_4pda" /> -->
 	</PreferenceCategory>
 
 </PreferenceScreen>

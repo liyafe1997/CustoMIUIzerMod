@@ -21,11 +21,19 @@ public class AboutFragment extends SubFragment {
 		findPreference("pref_key_website").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
 			@Override
 			public boolean onPreferenceClick(Preference pref) {
-				Helpers.openURL(act, "https://code.highspec.ru/Mikanoshi/CustoMIUIzer");
+				Helpers.openURL(act, "https://github.com/liyafe1997/CustoMIUIzerMod");
 				return true;
 			}
 		});
 
+		findPreference("pref_key_original_website").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+			@Override
+			public boolean onPreferenceClick(Preference pref) {
+				Helpers.openURL(act, "https://code.highspec.ru/Mikanoshi/CustoMIUIzer");
+				return true;
+			}
+		});
+		/*
 		findPreference("pref_key_xda").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
 			@Override
 			public boolean onPreferenceClick(Preference pref) {
@@ -41,7 +49,7 @@ public class AboutFragment extends SubFragment {
 				return true;
 			}
 		});
-
+		*/
 		//Add version name to support title
 		View view = getView();
 		if (view != null) try {

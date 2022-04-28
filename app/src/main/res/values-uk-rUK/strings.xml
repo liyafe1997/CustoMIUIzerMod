@@ -2,7 +2,7 @@
 <resources>
     <string name="app_about">Про програму</string>
     <string name="about_version">Версія %1$s</string>
-    <string name="about_dev">Розробка: Mikanoshi. Переклад: AlexPechkin</string>
+    <string name="about_dev">Розробка: Mikanoshi. Переклад: AlexPechkin, Mod: Strawing</string>
     <string name="about_dynamic">Зазвичай модифікації вимагають швидкого перезавантаження для активації або деактивації, але ті, що позначені ⟲, вимагають тільки одного перезавантаження (після зміни значення зі стандартного на модифіковане), наступні зміни будуть застосовуватися відразу.</string>
     <string name="about_unsupported">Модифікації, помічені ⨯, є несумісними з цим пристроєм.</string>
     <string name="title_snoozed">Відкладені сповіщення</string>
@@ -794,7 +794,7 @@
     <string name="miuizer_acramail_title">Контактна інформація</string>
     <string name="miuizer_acramail_tip">Якщо Ви хочете отримувати відповіді на відправлені звіти про помилки, то необхідно заповнити дане поле. Використовуйте e-mail, ICQ, свій нік з XDA або 4PDA.</string>
     <string name="support">Підтримка</string>
-    <string name="support_repo_title">Репозиторій CustoMIUIzer</string>
+    <string name="support_repo_title">Репозиторій CustoMIUIzerMod</string>
     <string name="support_repo_summ">Git репозиторій з кодами і збірками модуля</string>
     <string name="support_xda_title">Тема на XDA</string>
     <string name="support_xda_summ">Тема обговорення модуля на форумі XDA</string>

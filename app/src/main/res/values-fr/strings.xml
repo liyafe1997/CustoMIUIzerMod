@@ -2,7 +2,7 @@
 <resources>
     <string name="app_about">A propos</string>
     <string name="about_version">Version %1$s</string>
-    <string name="about_dev">Par Mikanoshi</string>
+    <string name="about_dev">Par Mikanoshi, Mod by Strawing</string>
     <string name="about_dynamic">Généralement, les mods nécessitent un redémarrage doux pour être activés ou désactivés, mais ceux marqués avec ⟲ ne nécessitent qu\'un redémarrage doux après que leur valeur ait été changée de par défaut à personnalisée, les modifications suivantes sont appliquées immédiatement.</string>
     <string name="about_unsupported">Les mods marqués d\'un ⨯ ne sont pas supportés sur cet appareil.</string>
     <string name="title_snoozed">Notifications mises en attente</string>

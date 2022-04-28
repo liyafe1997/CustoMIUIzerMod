@@ -2,7 +2,7 @@
 <resources>
     <string name="app_about">Tentang</string>
     <string name="about_version">Versi %1$s</string>
-    <string name="about_dev">oleh Mikanoshi</string>
+    <string name="about_dev">oleh Mikanoshi, Mod by Strawing</string>
     <string name="about_dynamic">Pada dasarnya, modifikasi dalam aplikasi ini membutuhkan reboot setelah pengaktifan ataupun pe-non-aktifan fitur.</string>
     <string name="about_unsupported">Tanda ⨯ pada modifikasi menandakan bahwa perangkat anda tidak didukung.</string>
     <string name="title_snoozed">Penundaan notifikasi</string>

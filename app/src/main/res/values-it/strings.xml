@@ -2,7 +2,7 @@
 <resources>
     <string name="app_about">Informazioni</string>
     <string name="about_version">Versione %1$s</string>
-    <string name="about_dev">di Mikanoshi</string>
+    <string name="about_dev">di Mikanoshi, Mod by Strawing</string>
     <string name="about_dynamic">Generalmente, le modifiche richiedono un riavvio veloce per essere attivate o disattivate, tuttavia quelle contrassegnate con ⟲ richiedono un riavvio veloce solo la prima volta dopo che il loro valore è stato modificato da predefinito a personalizzato. Le modifiche successive verranno applicate istantaneamente.</string>
     <string name="about_unsupported">Le modifiche contrassegnate con ⨯ non sono supportate su questo dispositivo.</string>
     <string name="title_snoozed">Notifiche posticipate</string>
@@ -875,14 +875,14 @@
     <string name="miuizer_acramail_title">Informazioni di contatto</string>
     <string name="miuizer_acramail_tip">È assolutamente necessario compilare questo campo se ti aspetti di ricevere risposte ai tuoi rapporti sugli arresti anomali. Usa email, nickname ICQ, XDA o 4PDA.</string>
     <string name="support">Supporto</string>
-    <string name="support_repo_title">Repository CustoMIUIzer</string>
+    <string name="support_repo_title">Repository CustoMIUIzerMod</string>
     <string name="support_repo_summ">Repository Git con sorgenti e distribuzioni di moduli</string>
     <string name="support_xda_title">Thread XDA</string>
     <string name="support_xda_summ">Thread del modulo sul forum XDA</string>
     <string name="support_4pda_title">Thread 4PDA</string>
     <string name="support_4pda_summ">Thread del modulo sul forum 4PDA</string>
     <string name="support_bug_title">Segnala un bug</string>
-    <string name="support_bug_summ">Inviaci una segnalazione di bug o una richiesta di funzionalità tramite il tracker ufficiale dei problemi</string>
+    <string name="support_bug_summ">Inviaci una segnalazione di bug o una richiesta di funzionalità tramite il Github Issues</string>
     <string name="support_donate">Dona $%1$d</string>
     <string name="support_donate_title">Dona</string>
     <string name="support_donate_summ">Il modo migliore per esprimere la tua gratitudine verso questo fantastico modulo :)</string>

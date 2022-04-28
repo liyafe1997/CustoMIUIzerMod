@@ -550,7 +550,7 @@
     <string name="calls">Звонки</string>
     <string name="settings">Настройки</string>
     <string name="support_repo_summ">Git репозиторий с исходниками и дистрибутивами модуля</string>
-    <string name="support_repo_title">Репозиторий CustoMIUIzer</string>
+    <string name="support_repo_title">Репозиторий CustoMIUIzerMod</string>
     <string name="support_xda_title">Тема на XDA</string>
     <string name="support_xda_summ">Тема обсуждения модуля на форуме XDA</string>
     <string name="support_4pda_title">Тема на 4PDA</string>
@@ -932,7 +932,7 @@
     <string name="disable_app_text">Если данное приложение является важным системным, то его отключение может что-нибудь поломать :)</string>
     <string name="disable_app_settings">Это плохая идея! :)</string>
     <string name="disable_app_fail">Не удалось изменить статус приложения</string>
-    <string name="about_dev">от Mikanoshi</string>
+    <string name="about_dev">от Mikanoshi, Mod by Strawing</string>
     <string name="system_nopassword_title">Не требовать пароль после загрузки</string>
     <string name="system_nopassword_summ">Отключает требование пароля вместо отпечатка пальца первый раз после загрузки. Работа на устройствах с шифрованием маловероятна.</string>
     <string name="system_albumartonlock_title">Обложка альбома на обоях</string>

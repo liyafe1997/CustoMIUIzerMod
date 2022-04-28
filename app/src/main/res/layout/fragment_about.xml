@@ -223,6 +223,14 @@
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:gravity="start"
+					android:text="@string/about_about_mod"
+					android:textColor="@color/color_not_selected" />
+
+				<TextView
+					style="@style/Widget.InputField"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="start"
 					android:text="@string/about_dynamic"
 					android:textColor="@color/color_not_selected" />
 

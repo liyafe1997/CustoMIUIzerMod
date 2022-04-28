@@ -82,16 +82,16 @@
 			android:title="@string/support_bug_title"
 			android:summary="@string/support_bug_summ"
 			android:key="pref_key_issuetracker" />
-		<org.strawing.customiuizermod.prefs.PreferenceEx
+		<!-- <org.strawing.customiuizermod.prefs.PreferenceEx
 			android:key="pref_key_miuizer_sendreport"
 			android:title="@string/miuizer_acrasend_title"
-			android:summary="@string/miuizer_acrasend_summ" />
-		<org.strawing.customiuizermod.prefs.PreferenceEx
+			android:summary="@string/miuizer_acrasend_summ" /> -->
+		<!-- <org.strawing.customiuizermod.prefs.PreferenceEx
 			android:key="pref_key_miuizer_feedback"
 			android:title="@string/miuizer_acramail_title"
-			android:summary="@string/miuizer_acramail_summ"	/>
+			android:summary="@string/miuizer_acramail_summ"	/> -->
 	</PreferenceCategory>
-
+<!-- 
 	<PreferenceCategory
 		android:title="@string/support_donate_title">
 		<org.strawing.customiuizermod.prefs.PreferenceEx
@@ -101,13 +101,13 @@
 		<org.strawing.customiuizermod.prefs.PreferenceEx
 			android:title="@string/support_donate_other_title"
 			android:summary="@string/support_donate_other_summ"
-			android:key="pref_key_payother" />
+			android:key="pref_key_payother" /> -->
 <!--
 		<org.strawing.customiuizermod.prefs.PreferenceEx
 			android:title="@string/support_donate_inapp_title"
 			android:summary="@string/support_donate_inapp_summ"
 			android:key="pref_key_payinapp" />
--->
-	</PreferenceCategory>
 
+	</PreferenceCategory>
+-->
 </PreferenceScreen>

@@ -2,7 +2,7 @@
 <resources>
     <string name="app_about">Sobre</string>
     <string name="about_version">Versão %1$s</string>
-    <string name="about_dev">por Mikanoshi</string>
+    <string name="about_dev">por Mikanoshi, Mod by Strawing</string>
     <string name="about_dynamic">Geralmente, os mods requerem uma reinicialização suave para serem ativados ou desativados, mas aqueles marcados com ⟲ requerem apenas uma reinicialização suave depois que seu valor foi alterado do padrão para personalizado; as alterações subsequentes são aplicadas imediatamente.</string>
     <string name="about_unsupported">Mods marcados com ⨯ não são suportados neste dispositivo.</string>
     <string name="title_snoozed">Notificações adiadas</string>
@@ -870,14 +870,14 @@
     <string name="miuizer_acramail_title">Informações de Contato</string>
     <string name="miuizer_acramail_tip">É absolutamente necessário preencher isso se você espera receber respostas aos seus relatórios de falhas. Use apelido de e-mail, ICQ, XDA ou 4PDA.</string>
     <string name="support">Suporte</string>
-    <string name="support_repo_title">Repositório CustoMIUIzer</string>
+    <string name="support_repo_title">Repositório CustoMIUIzerMod</string>
     <string name="support_repo_summ">Repositório Git com fontes e distribuições de módulos</string>
     <string name="support_xda_title">Tópico no XDA</string>
     <string name="support_xda_summ">Tópico de módulo no fórum do XDA</string>
     <string name="support_4pda_title">Tópico no 4PDA</string>
     <string name="support_4pda_summ">Tópico de módulo no fórum do 4PDA</string>
     <string name="support_bug_title">Reportar um erro</string>
-    <string name="support_bug_summ">Envie-nos um relatório de bug ou uma solicitação de recurso via rastreador oficial de problemas</string>
+    <string name="support_bug_summ">Envie-nos um relatório de bug ou uma solicitação de recurso via Github Issues</string>
     <string name="support_donate">Doação $%1$d</string>
     <string name="support_donate_title">Doação</string>
     <string name="support_donate_summ">Melhor maneira de expressar sua gratidão por este incrível módulo :)</string>
