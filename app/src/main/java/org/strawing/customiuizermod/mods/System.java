@@ -1595,7 +1595,30 @@ public class System {
     }
 
     public static void NetSpeedIntervalHook(LoadPackageParam lpparam) {
-        Helpers.findAndHookMethod("com.android.systemui.statusbar.NetworkSpeedView", lpparam.classLoader, "onAttachedToWindow", new MethodHook() {
+
+        if (Helpers.is125() && Helpers.isRPlus()) { // Android11+ MIUI 12.5+
+            long intervalTime = MainModule.mPrefs.getInt("system_netspeedinterval", 4) * 1000;
+
+            Helpers.findAndHookMethod("com.android.systemui.statusbar.NetworkSpeedController", lpparam.classLoader, "postUpdateNetworkSpeedDelay", long.class, new MethodHook() {
+                @Override
+                protected void before(final MethodHookParam param) throws Throwable {
+                    if (((long) param.args[0]) != 0L) {
+                        param.args[0] = intervalTime;
+                    }
+                }
+            });
+            return;
+        }
+
+        Class<?> networkSpeedViewClass = XposedHelpers.findClassIfExists("com.android.systemui.statusbar.NetworkSpeedView", lpparam.classLoader);
+        if (networkSpeedViewClass == null)
+            networkSpeedViewClass = XposedHelpers.findClassIfExists("com.android.systemui.statusbar.views.NetworkSpeedView", lpparam.classLoader);
+        if (networkSpeedViewClass == null) {
+            Helpers.log("NetSpeedIntervalHook", "Error: NetworkSpeedView class not found");
+            return;
+        }
+
+        Helpers.findAndHookMethod(networkSpeedViewClass, "onAttachedToWindow", new MethodHook() {
             @Override
             protected void after(final MethodHookParam param) throws Throwable {
                 Context mContext = (Context) XposedHelpers.getObjectField(param.thisObject, "mContext");
@@ -1605,14 +1628,17 @@ public class System {
     }
 
     public static void DetailedNetSpeedHook(LoadPackageParam lpparam) {
-        String NetworkSpeedView_classname = "com.android.systemui.statusbar.NetworkSpeedView";
-        if (Helpers.is125() && Helpers.isRPlus()) {
-            NetworkSpeedView_classname = "com.android.systemui.statusbar.views.NetworkSpeedView";
+        Class<?> networkSpeedViewClass = XposedHelpers.findClassIfExists("com.android.systemui.statusbar.NetworkSpeedView", lpparam.classLoader);
+        if (networkSpeedViewClass == null)
+            networkSpeedViewClass = XposedHelpers.findClassIfExists("com.android.systemui.statusbar.views.NetworkSpeedView", lpparam.classLoader);
+        if (networkSpeedViewClass == null) {
+            Helpers.log("DetailedNetSpeedHook", "Error: NetworkSpeedView class not found");
+            return;
         }
 
 
         if (!(Helpers.is125() && Helpers.isRPlus())) { //Only Android 10 and below need to do this
-            Helpers.hookAllMethods(NetworkSpeedView_classname, lpparam.classLoader, "onTextChanged", XC_MethodReplacement.DO_NOTHING);
+            Helpers.hookAllMethods(networkSpeedViewClass, "onTextChanged", XC_MethodReplacement.DO_NOTHING);
         }
 
         if (Helpers.is125() && Helpers.isRPlus()) { //Android 11 & MIUI12.5 Need to hook Statusbar in Screen Lock interface, to set front size
@@ -1653,7 +1679,7 @@ public class System {
             });
         }
 
-        Helpers.hookAllConstructors(NetworkSpeedView_classname, lpparam.classLoader, new MethodHook() {
+        Helpers.hookAllConstructors(networkSpeedViewClass, new MethodHook() {
             @Override
             protected void after(final MethodHookParam param) throws Throwable {
                 TextView meter = (TextView) param.thisObject;
