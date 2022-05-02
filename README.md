@@ -12,7 +12,7 @@ Currently I have no plan to add new features to this mod, only target at make it
 Also, if you have solutions for the workaound, you are welcomed to sumbit pull request.  
 
 ### List of fix in CustoMIUIzerMod
-Note: Mods are not listed here not means it can't work work with higher version of MIUI and Android. These mods are the mods not work with higher version OS in original CustoMIUIzer, and be fixed in CustoMIUIzerMod.
+Note: Mods are not listed here not means it can't work work with higher version of MIUI and Android. These mods are the mods not work with higher version OS in original CustoMIUIzer, and be fixed in CustoMIUIzerMod. For this moment, I don't have time to test each mods whether it works or not one by one, so if you find any mods doesn't work, you are welcomed to sumbit issues.
 
 1. Mod: Navigation bar custom (left/right) key
 
