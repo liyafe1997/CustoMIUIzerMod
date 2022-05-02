@@ -55,8 +55,8 @@ android {
     flavorDimensions 'api'
     productFlavors {
         standalone {
-            targetSdkVersion 29
-            signingConfig signingConfigs.v1
+            targetSdkVersion 30
+            signingConfig signingConfigs.v2
         }
         playstore {
             targetSdkVersion 30
