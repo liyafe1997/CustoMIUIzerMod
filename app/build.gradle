@@ -33,8 +33,8 @@ android {
         applicationId "org.strawing.customiuizermod"
         minSdkVersion 24
         //noinspection OldTargetApi,ExpiredTargetSdkVersion
-        targetSdkVersion 27
-        versionCode 71
+        targetSdkVersion 30
+        versionCode 1
         versionName "1.0.321"
         resConfigs 'ru-rRU', 'uk-rUK', 'zh-rCN', 'pt-rBR', 'de', 'es', 'it', 'tr'
     }
