@@ -6,7 +6,7 @@
 This project is based on [Mikanoshi's CustoMIUIzer](https://code.highspec.ru/Mikanoshi/CustoMIUIzer), since the original CustoMIUIzer haven't adapted MIUI12.5 & Android 11 yet for a long time, this mod is targeting at adapting higher version of Android and MIUI. 
 
 
-Currently I have no plan to add new features to this mod, only target at make it works on higher version of MIUI and Android. Even Android 12 & MIUI 13 is in the plan, but for this moment I will focus on Android 11 & MIUI 12.5. If you found something doesn't work or unexpeted whatever on A11/A12, MIUI12.5/13, you are welcome to submit issues, but I will deal with problems of Android12/MIUI13 later.
+Currently I have no plan to add new features to this mod, only target at make it works on higher version of MIUI and Android. Even Android 12 & MIUI 13 is in the plan, but for this moment I will focus on Android 11 & MIUI 12.5. If you found something doesn't work or unexpeted whatever on A11/A12, MIUI12.5/13, you are welcome to submit issues, but I will deal with problems of Android12/MIUI13 later. (Theoretically, the compatibility of mods is mainly related to the Android version and less related to the MIUI version, so most of mods should work without workaround for MIUI13 with Android 11 and below.)
 
 
 Also, if you have solutions for the workaound, you are welcomed to sumbit pull request.  
@@ -50,7 +50,7 @@ For the version number, it start from 1.0, and the last three number is the base
 
 该项目基于原版[Mikanoshi's CustoMIUIzer](https://code.highspec.ru/Mikanoshi/CustoMIUIzer)，由于原版好久没有更新适配MIUI12.5 & Android 11，而且从跟他在issue板交流的回复情况看，那位老哥短时间内似乎没有适配高版本MIUI&Android的计划。已经快一年了，实在等不及，于是决定自己动手。
 
-当前我并没有计划添加新功能，主要还是适配更高版本的MIUI和Android。因为我时间有限，尽管计划以后会适配Android 12 & MIUI 13，但目前主要还是先适配Android 11 & MIUI 12.5。如果你发现有Mod在Android11/12，MIUI12.5/13下无法正常工作，欢迎提Issue，但目前我还是会优先处理Android 11 & MIUI 12.5，以后再处理Android 12 & MIUI 13。
+当前我并没有计划添加新功能，主要还是适配更高版本的MIUI和Android。因为我时间有限，尽管计划以后会适配Android 12 & MIUI 13，但目前主要还是先适配Android 11 & MIUI 12.5。如果你发现有Mod在Android11/12，MIUI12.5/13下无法正常工作，欢迎提Issue，但目前我还是会优先处理Android 11 & MIUI 12.5，以后再处理Android 12 & MIUI 13。（理论上，模块兼容性主要与Android版本相关性较大，与MIUI版本相关性较小，所以对于Android11及以下的MIUI13应该不需做额外适配）
 
 来自酷安的老哥欢迎在酷安@Strawing提问题。之后打算上架酷安，目前正在申请开发者认证，还在审核中。
 
