@@ -39,3 +39,9 @@ If you are using Play Store's version of CustoMIUIzer, please download and insta
 5. Open CustoMIUIzerMod, click three-dots menu, "Settings management", "Restore", then select the backup file "/CustoMIUIzer/settings_backup".
 
 6. Done.
+
+### About Versions and futher updates
+
+For the version number, it start from 1.0, and the last three number is the based version of original CustoMIUIzer. E.g. 1.0.321 means this 1.0 version is based on CustoMIUIzer 3.2.1. I will merge updates from the upstram (original CustoMIUIzer) depends on the situation.
+
+## 简体中文 (Simplified Chinese)
