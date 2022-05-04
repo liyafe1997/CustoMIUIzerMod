@@ -1,5 +1,5 @@
 # CustoMIUIzerMod
-https://img.shields.io/github/downloads/liyafe1997/CustoMIUIzerMod/total?label=Download
+![Download](https://img.shields.io/github/downloads/liyafe1997/CustoMIUIzerMod/total?label=Download)
 ## English 
 
 ### Introduction 
