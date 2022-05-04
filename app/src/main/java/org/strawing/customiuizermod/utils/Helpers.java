@@ -862,13 +862,10 @@ public class Helpers {
     public static void openURL(Context context, String url) {
         if (context == null) return;
         Intent uriIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-        context.startActivity(uriIntent);
-
-        // Android 11+ no getPackageManager permission
-        // if (uriIntent.resolveActivity(context.getPackageManager()) != null)
-        //     context.startActivity(uriIntent);
-        // else
-        //     showOKDialog(context, R.string.warning, R.string.no_browser);
+        if (uriIntent.resolveActivity(context.getPackageManager()) != null)
+            context.startActivity(uriIntent);
+        else
+            showOKDialog(context, R.string.warning, R.string.no_browser);
     }
 
     public static void openAppInfo(Context context, String pkg, int user) {
