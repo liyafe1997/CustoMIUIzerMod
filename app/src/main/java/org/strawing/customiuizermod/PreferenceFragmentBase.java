@@ -97,6 +97,10 @@ public class PreferenceFragmentBase extends PreferenceFragment {
                     ((SubFragment) this).finish();
                 return true;
             case R.id.get_update:
+                // I haven't release to xposed repo
+                Helpers.openURL(getActivity(), "https://github.com/liyafe1997/CustoMIUIzerMod/releases");
+                return true; 
+                /*
                 try {
                     Intent detailsIntent = new Intent("de.robv.android.xposed.installer.DOWNLOAD_DETAILS");
                     detailsIntent.addCategory(Intent.CATEGORY_DEFAULT);
@@ -104,8 +108,9 @@ public class PreferenceFragmentBase extends PreferenceFragment {
                     detailsIntent.setData(Uri.fromParts("package", Helpers.modulePkg, null));
                     startActivity(detailsIntent);
                 } catch (Throwable e) {
-                    Helpers.openURL(getActivity(), "https://code.highspec.ru/Mikanoshi/CustoMIUIzer/releases");
+                    Helpers.openURL(getActivity(), "https://github.com/liyafe1997/CustoMIUIzerMod/releases");
                 }
+                */
             case R.id.xposedinstaller:
                 return Helpers.openXposedApp(getValidContext());
             case R.id.backuprestore:

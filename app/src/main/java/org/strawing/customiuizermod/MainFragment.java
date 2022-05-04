@@ -268,7 +268,7 @@ public class MainFragment extends PreferenceFragmentBase {
 
                 String dataPath = act.getFilesDir().getAbsolutePath();
                 try {
-                    URL url = new URL("https://code.highspec.ru/Mikanoshi/CustoMIUIzer/raw/branch/master/last_build");
+                    URL url = new URL("https://raw.githubusercontent.com/liyafe1997/CustoMIUIzerMod/mod/last_build");
                     //URL url = new URL("https://code.highspec.ru/last_build");
                     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                     connection.setDefaultUseCaches(false);
