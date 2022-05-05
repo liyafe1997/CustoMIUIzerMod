@@ -1,7 +1,7 @@
 # CustoMIUIzerMod
 [![Download](https://img.shields.io/github/downloads/liyafe1997/CustoMIUIzerMod/total?label=Release%20Download)](https://github.com/liyafe1997/CustoMIUIzerMod/releases)
 ## English 
-
+[简体中文](#%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-simplified-chinese)
 ### Introduction 
 This project is based on [Mikanoshi's CustoMIUIzer](https://code.highspec.ru/Mikanoshi/CustoMIUIzer), since the original CustoMIUIzer haven't adapted MIUI12.5 & Android 11 yet for a long time, this mod is targeting at adapting higher version of Android and MIUI. 
 

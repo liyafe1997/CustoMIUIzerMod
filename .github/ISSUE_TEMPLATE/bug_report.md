@@ -20,3 +20,6 @@ If applicable, add screenshots to help explain your problem.
 
 **Related APK upload**
 If you know where is this mod related to (E.g. systemui) and know how to extract the APK, you can upload it here.
+
+**LSPosed/EdXposed Log**
+It's recommended to upload xposed logs.
