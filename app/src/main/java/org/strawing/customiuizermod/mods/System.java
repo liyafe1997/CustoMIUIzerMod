@@ -1742,8 +1742,12 @@ public class System {
                 }
             });
         }
-
-        Helpers.findAndHookMethod(nscCls, "updateText", String.class, new MethodHook() {
+        Method updateSpeedTextMethod = XposedHelpers.findMethodExactIfExists(nscCls, "updateText", String.class);
+        Class<?> updateSpeedTextMethodParamClass = String.class;
+        if(updateSpeedTextMethod == null) { // Method setTextToViewList param is CharSequence
+            updateSpeedTextMethodParamClass = CharSequence.class;
+        }
+        Helpers.findAndHookMethod(nscCls, updateSpeedTextMethod != null ? "updateText" : "setTextToViewList", updateSpeedTextMethodParamClass, new MethodHook() {
             @Override
             protected void before(final MethodHookParam param) throws Throwable {
                 Context mContext = (Context) XposedHelpers.getObjectField(param.thisObject, "mContext");
@@ -1783,8 +1787,6 @@ public class System {
                                 ((TextView) tv).setAlpha(rxSpeed == 0 && txSpeed == 0 ? 0.3f : 1.0f);
                     }
                 }
-                //Helpers.log("DetailedNetSpeedHook", "setTextToViewList: " + tx + ", " + rx);
-                //Helpers.log("DetailedNetSpeedHook", "class: " + param.thisObject.getClass().getSimpleName());
             }
         });
 
