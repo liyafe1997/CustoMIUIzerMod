@@ -24,7 +24,7 @@ Note: Mods are not listed here not means it can't work work with higher version 
 
 5. Mod: Hide app from recent list
 
-6. Remove unlock icon animation on launcher
+6. Mod: Remove unlock icon animation on launcher
 
 7. Backup/Restore Settings: Use Document Provider to load/save backup file instead of hard coded the path. For compatible with Android 11's new storage policy.
 
