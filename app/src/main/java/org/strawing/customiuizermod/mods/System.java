@@ -2270,13 +2270,9 @@ public class System {
             Helpers.findAndHookMethod(taskRecordClass, lpparam.classLoader, "setIntent", Intent.class, ActivityInfo.class, new MethodHook() {
                 @Override
                 protected void after(final MethodHookParam param) throws Throwable {
-                    Intent paraIntent = (Intent) param.args[0];
                     ActivityInfo paraActivityInfo = (ActivityInfo) param.args[1];
                     String pkgName = null;
-                    if (paraIntent != null) {
-                        pkgName = paraIntent.getComponent().getPackageName();
-                    }
-                    if (pkgName == null) {
+                    if (pkgName == null && paraActivityInfo != null) {
                         pkgName = paraActivityInfo.packageName;
                     }
                     if (pkgName != null) {
