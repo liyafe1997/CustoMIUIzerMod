@@ -1531,18 +1531,14 @@ public class System {
         long tx = -1L;
         long rx = -1L;
 
-        try {/*
+        try {
             for (Enumeration<NetworkInterface> list = NetworkInterface.getNetworkInterfaces(); list.hasMoreElements(); ) {
                 NetworkInterface iface = list.nextElement();
                 if (iface.isUp() && !iface.isVirtual() && !iface.isLoopback() && !iface.isPointToPoint() && !"".equals(iface.getName())) {
-
                     tx += (long) XposedHelpers.callStaticMethod(TrafficStats.class, "getTxBytes", iface.getName());
                     rx += (long) XposedHelpers.callStaticMethod(TrafficStats.class, "getRxBytes", iface.getName());
-
                 }
-            }*/
-            tx += (long) XposedHelpers.callStaticMethod(TrafficStats.class, "getTotalTxBytes");
-            rx += (long) XposedHelpers.callStaticMethod(TrafficStats.class, "getTotalRxBytes");
+            }
             return new Pair<Long, Long>(tx, rx);
         } catch (Throwable t) {
             XposedBridge.log(t);
