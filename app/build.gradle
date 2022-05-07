@@ -34,8 +34,8 @@ android {
         minSdkVersion 24
         //noinspection OldTargetApi,ExpiredTargetSdkVersion
         targetSdkVersion 30
-        versionCode 3
-        versionName "1.2.321"
+        versionCode 4
+        versionName "1.3.321"
         resConfigs 'ru-rRU', 'uk-rUK', 'zh-rCN', 'pt-rBR', 'de', 'es', 'it', 'tr'
     }
     buildTypes {

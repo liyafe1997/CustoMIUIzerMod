@@ -22,7 +22,11 @@ Note: Mods are not listed here not means it can't work work with higher version 
 
 4. Mod: Custom network speed indicator update interval
 
-5. Backup/Restore Settings: Use Document Provider to load/save backup file instead of hard coded the path. For compatible with Android 11's new storage policy.
+5. Mod: Hide app from recent list
+
+6. Remove unlock icon animation on launcher
+
+7. Backup/Restore Settings: Use Document Provider to load/save backup file instead of hard coded the path. For compatible with Android 11's new storage policy.
 
 ### How to migrate settings from original CustoMIUIzer
 
@@ -67,7 +71,11 @@ Note: 不在本列表中的Mods并不意味着在高版本的Android和MIUI中�
 
 4. Mod: 自定义网速更新间隔
 
-5. 备份/还原设置：用Document Provider API来读写备份文件，而不是原先的写死路径的方法，目的是兼容Android 11的新存储策略。
+5. Mod: 最近应用列表隐藏指定App
+
+6. Mod: 去除解锁图标动画
+
+7. 备份/还原设置：用Document Provider API来读写备份文件，而不是原先的写死路径的方法，目的是兼容Android 11的新存储策略。
 
 ### 如何把设置从原版CustoMIUIzer迁移到CustoMIUIzerMod
 
