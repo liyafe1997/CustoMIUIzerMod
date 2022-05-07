@@ -7207,7 +7207,13 @@ public class System {
     }
 
     public static void NoUnlockAnimationHook(LoadPackageParam lpparam) {
-        Helpers.findAndHookMethod("com.android.systemui.miui.ActivityObserverImpl", lpparam.classLoader, "isTopActivityLauncher", XC_MethodReplacement.returnConstant(false));
+        Class<?> nscCls = XposedHelpers.findClassIfExists("com.android.keyguard.utils.MiuiKeyguardUtils", lpparam.classLoader); //Android11+
+        if(nscCls != null) {
+            Helpers.findAndHookMethod(nscCls, "isTopActivityLauncher",Context.class, XC_MethodReplacement.returnConstant(false));
+        }else{
+            Helpers.findAndHookMethod("com.android.systemui.miui.ActivityObserverImpl", lpparam.classLoader, "isTopActivityLauncher", XC_MethodReplacement.returnConstant(false));
+        }
+
     }
 
     public static void NoSOSHook(LoadPackageParam lpparam) {
