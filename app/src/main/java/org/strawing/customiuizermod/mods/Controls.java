@@ -1108,6 +1108,11 @@ public class Controls {
     }
 
     public static void HideNavBarHook(LoadPackageParam lpparam) {
+        if(Helpers.isRPlus() && Helpers.is125()){
+           Helpers.hookAllMethods("com.android.systemui.statusbar.phone.StatusBar", lpparam.classLoader, "createNavigationBar", XC_MethodReplacement.DO_NOTHING);
+           return;
+        }
+
         Helpers.findAndHookMethod("com.android.systemui.statusbar.phone.StatusBar", lpparam.classLoader, "addNavigationBar", XC_MethodReplacement.DO_NOTHING);
         Helpers.findAndHookMethod("com.android.systemui.statusbar.phone.StatusBar", lpparam.classLoader, "changeNavBarViewState", new MethodHook() {
             @Override
