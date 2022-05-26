@@ -1050,6 +1050,21 @@ public class System {
     }
 
     public static void ClockSecondsHook(LoadPackageParam lpparam) {
+        Class<?> miuiClockClass = XposedHelpers.findClassIfExists("com.android.systemui.statusbar.policy.MiuiClock", lpparam.classLoader);
+
+        if (Helpers.isRPlus() && Helpers.is125() && miuiClockClass != null) {
+            Helpers.findAndHookMethod(miuiClockClass, "updateTime", new MethodHook() {
+                @Override
+                protected void after(MethodHookParam param) throws Throwable {
+                    XposedHelpers.setObjectField(param.thisObject, "mShowSeconds", true);
+                    TextView clock = (TextView) param.thisObject;
+                    NumberFormat df = new DecimalFormat("00");
+                    clock.append(":" + df.format(Calendar.getInstance().get(Calendar.SECOND)));
+
+                }
+            });
+            return ;
+        }
         Helpers.findAndHookMethod("com.android.systemui.statusbar.policy.Clock", lpparam.classLoader, "updateClock", new MethodHook(XCallback.PRIORITY_HIGHEST) {
             @Override
             protected void before(MethodHookParam param) throws Throwable {
@@ -7208,9 +7223,9 @@ public class System {
 
     public static void NoUnlockAnimationHook(LoadPackageParam lpparam) {
         Class<?> nscCls = XposedHelpers.findClassIfExists("com.android.keyguard.utils.MiuiKeyguardUtils", lpparam.classLoader); //Android11+
-        if(nscCls != null) {
-            Helpers.findAndHookMethod(nscCls, "isTopActivityLauncher",Context.class, XC_MethodReplacement.returnConstant(false));
-        }else{
+        if (nscCls != null) {
+            Helpers.findAndHookMethod(nscCls, "isTopActivityLauncher", Context.class, XC_MethodReplacement.returnConstant(false));
+        } else {
             Helpers.findAndHookMethod("com.android.systemui.miui.ActivityObserverImpl", lpparam.classLoader, "isTopActivityLauncher", XC_MethodReplacement.returnConstant(false));
         }
 
