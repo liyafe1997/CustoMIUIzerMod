@@ -1063,7 +1063,7 @@ public class System {
 
                 }
             });
-            return ;
+            return;
         }
         Helpers.findAndHookMethod("com.android.systemui.statusbar.policy.Clock", lpparam.classLoader, "updateClock", new MethodHook(XCallback.PRIORITY_HIGHEST) {
             @Override
@@ -4275,14 +4275,28 @@ public class System {
     }
 
     public static void BatteryIndicatorHook(LoadPackageParam lpparam) {
-        Helpers.findAndHookMethod("com.android.systemui.statusbar.phone.StatusBar", lpparam.classLoader, "makeStatusBarView", new MethodHook() {
+        Helpers.hookAllMethods("com.android.systemui.statusbar.phone.StatusBar", lpparam.classLoader, "makeStatusBarView", new MethodHook() {
             @Override
             protected void after(final MethodHookParam param) throws Throwable {
                 Context mContext = (Context) XposedHelpers.getObjectField(param.thisObject, "mContext");
-                FrameLayout mStatusBarWindow = (FrameLayout) XposedHelpers.getObjectField(param.thisObject, "mStatusBarWindow");
+                FrameLayout mStatusBarWindow = null;
+                try {
+                    mStatusBarWindow = (FrameLayout) XposedHelpers.getObjectField(param.thisObject, "mStatusBarWindow");
+                } catch (Throwable t) {
+                }
+
+                if (mStatusBarWindow == null) {
+                    // For MIUI 12.5 & Android 11
+                    mStatusBarWindow = (FrameLayout) XposedHelpers.getObjectField(param.thisObject, "mPhoneStatusBarWindow");
+
+                }
+                if (mStatusBarWindow == null) {
+                    Helpers.log("BatteryIndicatorHook", "Cannot found mStatusBarWindow");
+                    return;
+                }
                 BatteryIndicator indicator = new BatteryIndicator(mContext);
                 View panel = mStatusBarWindow.findViewById(mContext.getResources().getIdentifier("notification_panel", "id", lpparam.packageName));
-                mStatusBarWindow.addView(indicator, panel != null ? mStatusBarWindow.indexOfChild(panel) + 1 : Math.max(mStatusBarWindow.getChildCount() - 1, 8));
+                mStatusBarWindow.addView(indicator, panel != null ? mStatusBarWindow.indexOfChild(panel) + 1 : mStatusBarWindow.getChildCount() - 1);
                 indicator.setAdjustViewBounds(false);
                 indicator.init(param.thisObject);
                 XposedHelpers.setAdditionalInstanceField(param.thisObject, "mBatteryIndicator", indicator);
