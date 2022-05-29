@@ -3846,11 +3846,10 @@ public class System {
                 FrameLayout visFrame = new FrameLayout(mContext);
                 visFrame.setTag("customiuizermod_audio_visualizer");
                 visFrame.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-                if (audioViz == null) {
-                    audioViz = new AudioVisualizer(mContext);
-                    audioViz.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, Gravity.BOTTOM));
-                    audioViz.setClickable(false);
-                }
+
+                audioViz = new AudioVisualizer(mContext);
+                audioViz.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, Gravity.BOTTOM));
+                audioViz.setClickable(false);
 
                 visFrame.addView(audioViz);
                 visFrame.setClickable(false);
