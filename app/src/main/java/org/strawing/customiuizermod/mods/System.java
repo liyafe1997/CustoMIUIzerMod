@@ -3864,6 +3864,10 @@ public class System {
                     order = Math.max(order, mNotificationPanel.indexOfChild(themebkg));
                 if (wallpaper != null)
                     order = Math.max(order, mNotificationPanel.indexOfChild(wallpaper));
+
+                if (order == 0)
+                    order = mNotificationPanel.getChildCount() - 1;
+
                 mNotificationPanel.addView(visFrame, order + 1);
             }
         });
