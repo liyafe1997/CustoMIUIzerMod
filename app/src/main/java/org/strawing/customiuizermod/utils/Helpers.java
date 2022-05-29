@@ -1992,19 +1992,19 @@ public class Helpers {
     }
 
     public static void log(String line) {
-        XposedBridge.log("[CustoMIUIzer] " + line);
+        XposedBridge.log("[CustoMIUIzerMod] " + line);
     }
 
     public static void log(Throwable t) {
-        XposedBridge.log("[CustoMIUIzer]\n" + Log.getStackTraceString(t));
+        XposedBridge.log("[CustoMIUIzerMod]\n" + Log.getStackTraceString(t));
     }
 
     public static void log(String mod, String line) {
-        XposedBridge.log("[CustoMIUIzer][" + mod + "] " + line);
+        XposedBridge.log("[CustoMIUIzerMod][" + mod + "] " + line);
     }
 
     public static void log(String mod, Throwable t) {
-        XposedBridge.log("[CustoMIUIzer][" + mod + "]\n" + Log.getStackTraceString(t));
+        XposedBridge.log("[CustoMIUIzerMod][" + mod + "]\n" + Log.getStackTraceString(t));
     }
 
     public static class MethodHook extends XC_MethodHook {
