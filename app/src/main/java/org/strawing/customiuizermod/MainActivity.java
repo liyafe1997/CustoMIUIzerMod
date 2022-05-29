@@ -40,14 +40,15 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		boolean mSDKFound = ((MainApplication)getApplication()).mStarted;
+
 		if (mSDKFound) Helpers.setMiuiTheme(this, R.style.MIUIPrefs);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
 		if (!mSDKFound) {
 			Toast.makeText(this, R.string.sdk_failed, Toast.LENGTH_LONG).show();
-			finish();
-			return;
+			//finish();
+			//return;
 		}
 
 		HolidayHelper.setup(this);

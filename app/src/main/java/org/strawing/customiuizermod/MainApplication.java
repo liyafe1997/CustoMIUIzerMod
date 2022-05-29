@@ -40,12 +40,11 @@ public class MainApplication extends Application {
 	public boolean mStarted = false;
 
 	public MainApplication() {
-		try {
-			mInitialized = SdkManager.initialize(this, new HashMap<String, Object>()) == 0;
-		} catch (Throwable t) {
-			mInitialized = false;
-			t.printStackTrace();
-		}
+
+			//mInitialized = SdkManager.initialize(this, new HashMap<String, Object>()) == 0;
+
+		mInitialized=true;
+		mStarted=true;
 	}
 
 	@Override
@@ -61,7 +60,7 @@ public class MainApplication extends Application {
 			Log.e("miuizer", "Failed to use protected storage!");
 		}
 		super.attachBaseContext(pContext);
-
+		/*
 		if (mInitialized) try {
 			int res = SdkManager.start(new HashMap<String, Object>());
 			if (res == 1) {
@@ -76,7 +75,7 @@ public class MainApplication extends Application {
 		} catch (Throwable t) {
 			t.printStackTrace();
 		} else Log.e("miuizer", "Failed to init MIUI SDK Manager");
-
+		*/
 		ACRA.DEV_LOGGING = false;
 		CoreConfigurationBuilder builder = new CoreConfigurationBuilder(this).setPluginLoader(new SimplePluginLoader(
 			ConfigurationCollector.class,
@@ -102,7 +101,7 @@ public class MainApplication extends Application {
 			BUILD, TOTAL_MEM_SIZE, AVAILABLE_MEM_SIZE, CUSTOM_DATA, STACK_TRACE, INITIAL_CONFIGURATION, CRASH_CONFIGURATION, DISPLAY, USER_COMMENT, USER_EMAIL,
 			USER_APP_START_DATE, USER_CRASH_DATE, DUMPSYS_MEMINFO, LOGCAT, INSTALLATION_ID, DEVICE_FEATURES, ENVIRONMENT, SHARED_PREFERENCES,
 			SETTINGS_SYSTEM, SETTINGS_SECURE, SETTINGS_GLOBAL);
-		ACRA.init(this, builder);
+		//ACRA.init(this, builder);
 	}
 
 }
