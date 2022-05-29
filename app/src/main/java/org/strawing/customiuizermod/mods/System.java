@@ -3935,11 +3935,7 @@ public class System {
         };
 
         if (Helpers.isRPlus() && Helpers.is125()) {
-            //This for Notification Pull down expand (When user use finger to pull down notifi panel will tigger this)
             Helpers.findAndHookMethod("com.android.systemui.statusbar.phone.NotificationPanelViewController", lpparam.classLoader, "updatePanelExpanded", notifiPanelExpanded_MethodHook);
-
-            //This for lockscreen (in lockscreen will trigger this)
-            //Helpers.findAndHookMethod("com.android.systemui.statusbar.phone.NotificationPanelViewController", lpparam.classLoader, "onExpandingFinished", notifiPanelExpanded_MethodHook);
         } else {
             Helpers.findAndHookMethod("com.android.systemui.statusbar.phone.NotificationPanelView", lpparam.classLoader, "onExpandingFinished", notifiPanelExpanded_MethodHook);
         }
