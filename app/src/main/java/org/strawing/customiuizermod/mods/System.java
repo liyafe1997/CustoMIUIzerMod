@@ -8,6 +8,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityOptions;
+import android.app.AndroidAppHelper;
 import android.app.Dialog;
 import android.app.KeyguardManager;
 import android.app.MiuiNotification;
@@ -3819,21 +3820,38 @@ public class System {
     }
 
     public static void AudioVisualizerHook(LoadPackageParam lpparam) {
-        Helpers.findAndHookMethod("com.android.systemui.statusbar.phone.StatusBar", lpparam.classLoader, "makeStatusBarView", new MethodHook() {
+        Helpers.hookAllMethods("com.android.systemui.statusbar.phone.StatusBar", lpparam.classLoader, "makeStatusBarView", new MethodHook() {
             @Override
             protected void after(final MethodHookParam param) throws Throwable {
-                ViewGroup mNotificationPanel = (ViewGroup) XposedHelpers.getObjectField(param.thisObject, "mNotificationPanel");
+                FrameLayout mNotificationPanel = null;
+                try { // Andoird 10 and below
+                    mNotificationPanel = (FrameLayout) XposedHelpers.getObjectField(param.thisObject, "mNotificationPanel");
+                } catch (Throwable t) {
+                }
+                if (mNotificationPanel == null) {
+                    try { // Andoird 11 and above
+                        Object mNotificationPanelViewController = XposedHelpers.getObjectField(param.thisObject, "mNotificationPanelViewController");
+                        mNotificationPanel = (FrameLayout) XposedHelpers.getObjectField(mNotificationPanelViewController, "mView");
+                    } catch (Throwable t) {
+                    }
+
+                }
+
                 if (mNotificationPanel == null) {
                     Helpers.log("AudioVisualizerHook", "Cannot find mNotificationPanel");
                     return;
                 }
 
                 Context mContext = (Context) XposedHelpers.getObjectField(param.thisObject, "mContext");
-                ViewGroup visFrame = new FrameLayout(mContext);
+                FrameLayout visFrame = new FrameLayout(mContext);
+                visFrame.setTag("customiuizermod_audio_visualizer");
                 visFrame.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-                audioViz = new AudioVisualizer(mContext);
-                audioViz.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, Gravity.BOTTOM));
-                audioViz.setClickable(false);
+                if (audioViz == null) {
+                    audioViz = new AudioVisualizer(mContext);
+                    audioViz.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, Gravity.BOTTOM));
+                    audioViz.setClickable(false);
+                }
+
                 visFrame.addView(audioViz);
                 visFrame.setClickable(false);
                 View wallpaper = mNotificationPanel.findViewById(mContext.getResources().getIdentifier("wallpaper", "id", lpparam.packageName));
@@ -3851,14 +3869,33 @@ public class System {
             }
         });
 
-        Helpers.findAndHookMethod("com.android.systemui.statusbar.phone.StatusBar", lpparam.classLoader, "onScreenTurnedOff", new MethodHook() {
-            @Override
-            protected void after(final MethodHookParam param) throws Throwable {
-                if (audioViz != null) audioViz.updateScreenOn(false);
-            }
-        });
 
-        Helpers.findAndHookMethod("com.android.systemui.statusbar.phone.StatusBar", lpparam.classLoader, "updateKeyguardState", boolean.class, boolean.class, new MethodHook() {
+        if (Helpers.isRPlus() && Helpers.is125()) { //Android 11 has no onScreenTurnedOff in com.android.systemui.statusbar.phone.StatusBar, so hook another one
+            Helpers.findAndHookMethod("com.android.systemui.statusbar.phone.ScrimController", lpparam.classLoader, "onScreenTurnedOff", new MethodHook() {
+                @Override
+                protected void after(final MethodHookParam param) throws Throwable {
+                    if (audioViz != null) audioViz.updateScreenOn(false);
+                }
+            });
+
+            Helpers.findAndHookMethod("com.android.systemui.statusbar.phone.ScrimController", lpparam.classLoader, "onScreenTurnedOn", new MethodHook() {
+                @Override
+                protected void after(final MethodHookParam param) throws Throwable {
+                    if (audioViz != null) audioViz.updateScreenOn(true);
+                }
+            });
+
+        } else {
+            Helpers.findAndHookMethod("com.android.systemui.statusbar.phone.StatusBar", lpparam.classLoader, "onScreenTurnedOff", new MethodHook() {
+                @Override
+                protected void after(final MethodHookParam param) throws Throwable {
+                    if (audioViz != null) audioViz.updateScreenOn(false);
+                }
+            });
+        }
+
+
+        Helpers.hookAllMethods("com.android.systemui.statusbar.phone.StatusBar", lpparam.classLoader, "updateKeyguardState", new MethodHook() {
             @Override
             protected void after(final MethodHookParam param) throws Throwable {
                 Object mStatusBarKeyguardViewManager = XposedHelpers.getObjectField(param.thisObject, "mStatusBarKeyguardViewManager");
@@ -3868,21 +3905,51 @@ public class System {
                     isNotificationPanelExpanded = false;
                     updateAudioVisualizerState((Context) XposedHelpers.getObjectField(param.thisObject, "mContext"));
                 }
+                FrameLayout mNotificationPanel = null;
+                try { // Andoird 10 and below
+                    mNotificationPanel = (FrameLayout) XposedHelpers.getObjectField(param.thisObject, "mNotificationPanel");
+                } catch (Throwable t) {
+                }
+                if (mNotificationPanel == null) {
+                    try { // Andoird 11 and above
+                        Object mNotificationPanelViewController = XposedHelpers.getObjectField(param.thisObject, "mNotificationPanelViewController");
+                        mNotificationPanel = (FrameLayout) XposedHelpers.getObjectField(mNotificationPanelViewController, "mView");
+                    } catch (Throwable t) {
+                    }
+
+                }
+                mNotificationPanel.refreshDrawableState();
             }
         });
 
-        Helpers.findAndHookMethod("com.android.systemui.statusbar.phone.NotificationPanelView", lpparam.classLoader, "onExpandingFinished", new MethodHook() {
+        // Process the notification panel expansion (include in lockscreen)
+        MethodHook notifiPanelExpanded_MethodHook = new MethodHook() {
             @Override
             protected void after(final MethodHookParam param) throws Throwable {
-                boolean isNotificationPanelExpandedNew = XposedHelpers.getBooleanField(param.thisObject, "mPanelExpanded");
+                boolean isNotificationPanelExpandedNew = (boolean) XposedHelpers.getObjectField(param.thisObject, "mPanelExpanded");
                 if (isNotificationPanelExpanded != isNotificationPanelExpandedNew) {
                     isNotificationPanelExpanded = isNotificationPanelExpandedNew;
-                    updateAudioVisualizerState((Context) XposedHelpers.getObjectField(param.thisObject, "mContext"));
+                    updateAudioVisualizerState((Context) AndroidAppHelper.currentApplication());
                 }
             }
-        });
+        };
 
-        Helpers.findAndHookMethod("com.android.systemui.statusbar.phone.StatusBar", lpparam.classLoader, "updateMediaMetaData", boolean.class, boolean.class, new MethodHook() {
+        if (Helpers.isRPlus() && Helpers.is125()) {
+            //This for Notification Pull down expand (When user use finger to pull down notifi panel will tigger this)
+            Helpers.findAndHookMethod("com.android.systemui.statusbar.phone.NotificationPanelViewController", lpparam.classLoader, "updatePanelExpanded", notifiPanelExpanded_MethodHook);
+
+            //This for lockscreen (in lockscreen will trigger this)
+            //Helpers.findAndHookMethod("com.android.systemui.statusbar.phone.NotificationPanelViewController", lpparam.classLoader, "onExpandingFinished", notifiPanelExpanded_MethodHook);
+        } else {
+            Helpers.findAndHookMethod("com.android.systemui.statusbar.phone.NotificationPanelView", lpparam.classLoader, "onExpandingFinished", notifiPanelExpanded_MethodHook);
+        }
+
+
+        String updateMediaMetaData_ClassName = "com.android.systemui.statusbar.phone.StatusBar";
+        if (Helpers.isRPlus() && Helpers.is125()) {
+            updateMediaMetaData_ClassName = "com.android.systemui.statusbar.NotificationMediaManager";
+        }
+        Helpers.findAndHookMethod(updateMediaMetaData_ClassName, lpparam.classLoader, "updateMediaMetaData", boolean.class, boolean.class, new MethodHook() {
             @Override
             protected void before(final MethodHookParam param) throws Throwable {
                 if (audioViz == null) return;
