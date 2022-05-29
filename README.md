@@ -26,7 +26,15 @@ Note: Mods are not listed here not means it can't work work with higher version 
 
 6. Mod: Remove unlock icon animation on launcher
 
-7. Backup/Restore Settings: Use Document Provider to load/save backup file instead of hard coded the path. For compatible with Android 11's new storage policy.
+7. Mod: Show Seconds
+
+8. Mod: Music Visualizer
+
+9. Mod: Hide Navbar
+
+10. Mod: Battery bar indicator
+
+11. Backup/Restore Settings: Use Document Provider to load/save backup file instead of hard coded the path. For compatible with Android 11's new storage policy.
 
 ### How to migrate settings from original CustoMIUIzer
 
@@ -75,7 +83,15 @@ Note: 不在本列表中的Mods并不意味着在高版本的Android和MIUI中�
 
 6. Mod: 去除解锁图标动画
 
-7. 备份/还原设置：用Document Provider API来读写备份文件，而不是原先的写死路径的方法，目的是兼容Android 11的新存储策略。
+7. Mod: 显示秒
+
+8. Mod: 音乐可视化
+
+9. Mod: 隐藏导航栏
+
+10. Mod: 电池条指示器
+
+11. 备份/还原设置：用Document Provider API来读写备份文件，而不是原先的写死路径的方法，目的是兼容Android 11的新存储策略。
 
 ### 如何把设置从原版CustoMIUIzer迁移到CustoMIUIzerMod
 
