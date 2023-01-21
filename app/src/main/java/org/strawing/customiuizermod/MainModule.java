@@ -110,7 +110,7 @@ public class MainModule implements IXposedHookZygoteInit, IXposedHookLoadPackage
 		String pkg = lpparam.packageName;
 
 		if (pkg.equals("android") && lpparam.processName.equals("android")) {
-			PackagePermissions.hook(lpparam);
+			//PackagePermissions.hook(lpparam);
 			GlobalActions.setupGlobalActions(lpparam);
 			if (mPrefs.getBoolean("system_popupnotif_fs") ||
 				mPrefs.getBoolean("controls_volumecursor") ||
