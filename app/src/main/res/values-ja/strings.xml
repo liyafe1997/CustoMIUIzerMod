@@ -28,7 +28,7 @@
   <string name="system_mods_screen_rotation">Rotation</string>
   <string name="system_mods_screen_backlight">バックライト</string>
   <string name="system_mods_audio">オーディオ</string>
-  <string name="system_mods_vibration">Vibration</string>
+  <string name="system_mods_vibration">バイブレーション</string>
   <string name="system_mods_toasts">トースト通知</string>
   <string name="system_statusbaricons_title">アイコンを隠す</string>
   <string name="system_statusbaricons_summ">ステータスバーアイコン表示の管理</string>
