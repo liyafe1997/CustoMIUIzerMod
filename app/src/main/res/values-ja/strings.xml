@@ -117,7 +117,7 @@
   <string name="system_fixmeter_summ">ネットワーク速度表示の水平方向の余白を増やします</string>
   <string name="system_compactnotif_title">コンパクトな通知</string>
   <string name="system_compactnotif_summ">通知の縦方向の余白を減らします</string>
-  <string name="system_colorizenotiftitle_title">通知のタイトルをカラー化する</string>
+  <string name="system_colorizenotiftitle_title">通知のタイトルをカラー化</string>
   <string name="system_colorizenotiftitle_summ">タイトルテキストにアイコンカラーを適用します (Android通知スタイルのみ)</string>
   <string name="system_minimalnotifview_title">最小限の折りたたみ表示を復活させる</string>
   <string name="system_minimalnotifview_summ">重要度が低い通知は再度一行のみの表示に折りたためるようになります</string>
@@ -195,9 +195,9 @@
   <string name="system_audiosilencer_last_summ">最近再生をしたサウンドの一覧を取得します</string>
   <string name="system_audiosilencer_silenced">消音</string>
   <string name="system_audiosilencer_played">再生音</string>
-  <string name="system_nosafevolume_title">音量の警告を無効化する</string>
+  <string name="system_nosafevolume_title">音量の警告を無効化</string>
   <string name="system_nosafevolume_summ">音量を最大で使用時に表示される警告ダイアログを非表示にします</string>
-  <string name="system_noducking_title">ダッキングを無効化する</string>
+  <string name="system_noducking_title">ダッキングを無効化</string>
   <string name="system_noducking_summ">通知音の再生時に再生中の音楽の音量を下げないようにします</string>
   <string name="system_firstpress_title">即座な音量調整</string>
   <string name="system_firstpress_summ">音量ボタン操作時にメディアの音量を調整するようにします</string>
@@ -205,7 +205,7 @@
   <string name="system_separatevolume_summ">着信音、通知音、システムの音量を個別で設定可能にします</string>
   <string name="system_separatevolume_slider_title">通知の音量スライダー</string>
   <string name="system_separatevolume_slider_summ">拡張音量ダイアログに通知のスライダーを追加します</string>
-  <string name="system_nomediamute_title">メディアのミュートを無効化する</string>
+  <string name="system_nomediamute_title">メディアのミュートを無効化</string>
   <string name="system_nomediamute_summ">Do Not Disturbモードでメディアの音量をミュートにしないようにします</string>
   <string name="system_dndtoggle_title">DNDモードの切り替え</string>
   <string name="system_dndtoggle_summ">音量ダイアログのボタンでサイレントモードではなくDo Not Disturbモードを切り替え可能にします</string>
@@ -443,7 +443,7 @@
   <string name="system_betterpopups_center_title">中央に表示</string>
   <string name="system_betterpopups_center_summ">画面中央にポップアップを表示します</string>
   <string name="system_mods_floatingwindows">フローティングウィンドウ</string>
-  <string name="system_fw_noblacklist_title">ブラックリストを無効化する</string>
+  <string name="system_fw_noblacklist_title">ブラックリストを無効化</string>
   <string name="system_fw_noblacklist_summ">任意のアプリをフローティングウィンドウで開く事が可能になります</string>
   <string name="system_fw_sticky_title">状態を記憶</string>
   <string name="system_fw_sticky_summ">手動でフルスクリーンに戻すまでフローティングウィンドウを維持します</string>
@@ -782,7 +782,7 @@
   <string name="array_all">すべての充電イベント</string>
   <string name="array_allbutanim">アニメーションを使用しないイベントのみ</string>
   <string name="array_screenlock_no">システムのデフォルト</string>
-  <string name="array_screenlock_none">完全に無効化する</string>
+  <string name="array_screenlock_none">完全に無効化</string>
   <string name="array_screenlock_bootonly">再起動後に認証を要求</string>
   <string name="array_screenlock_trusted">信頼できるネットワーク/デバイスで無効化</string>
   <string name="array_screenlock_noreq">不要です</string>
