@@ -1059,6 +1059,8 @@ public class System {
                 protected void after(MethodHookParam param) throws Throwable {
                     XposedHelpers.setObjectField(param.thisObject, "mShowSeconds", true);
                     TextView clock = (TextView) param.thisObject;
+                    if (clock.getId() != clock.getResources().getIdentifier("clock", "id", "com.android.systemui"))
+                        return;
                     NumberFormat df = new DecimalFormat("00");
                     clock.append(":" + df.format(Calendar.getInstance().get(Calendar.SECOND)));
 
