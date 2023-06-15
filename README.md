@@ -2,6 +2,11 @@
 [![Download](https://img.shields.io/github/downloads/liyafe1997/CustoMIUIzerMod/total?label=Release%20Download)](https://github.com/liyafe1997/CustoMIUIzerMod/releases)
 ## English 
 [简体中文](#%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-simplified-chinese)
+
+### For Android 12 and above
+
+This project will not adopt Android 12+ since someone is doing that. If you are using Android 12+ based MIUI you can check: https://github.com/MonwF/customiuizer
+
 ### Introduction 
 This project is based on [Mikanoshi's CustoMIUIzer](https://code.highspec.ru/Mikanoshi/CustoMIUIzer), since the original CustoMIUIzer haven't adapted MIUI12.5 & Android 11 yet for a long time, this mod is targeting at adapting higher version of Android and MIUI. 
 
@@ -57,6 +62,10 @@ If you are using Play Store's version of CustoMIUIzer, please download and insta
 For the version number, it start from 1.0, and the last three number is the based version of original CustoMIUIzer. E.g. 1.0.321 means this 1.0 version is based on CustoMIUIzer 3.2.1. I will merge updates from the upstram (original CustoMIUIzer) depends on the situation.
 
 ## 简体中文 (Simplified Chinese)
+
+### Android 12及以上版本
+
+该项目不会去适配Android 12+，因为已经有别的项目在做了，如果你在使用Android12及以上版本可以看看这个项目：https://github.com/MonwF/customiuizer
 
 ### 简介
 
