@@ -69,7 +69,7 @@ For the version number, it start from 1.0, and the last three number is the base
 
 该项目不会去适配Android 12+，因为已经有别的项目在做了，如果你在使用Android12及以上版本可以看看这个项目：https://github.com/MonwF/customiuizer
 
-该项目主要是适配基于Android 12的MIUI12.5/13
+该项目主要是适配基于Android 11的MIUI12.5/13
 
 ### 简介
 
