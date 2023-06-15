@@ -69,11 +69,13 @@ For the version number, it start from 1.0, and the last three number is the base
 
 该项目不会去适配Android 12+，因为已经有别的项目在做了，如果你在使用Android12及以上版本可以看看这个项目：https://github.com/MonwF/customiuizer
 
+该项目主要是适配基于Android 12的MIUI12.5/13
+
 ### 简介
 
 该项目基于原版[Mikanoshi's CustoMIUIzer](https://code.highspec.ru/Mikanoshi/CustoMIUIzer)，由于原版好久没有更新适配MIUI12.5 & Android 11，而且从跟他在issue板交流的回复情况看，那位老哥短时间内似乎没有适配高版本MIUI&Android的计划。已经快一年了，实在等不及，于是决定自己动手。
 
-当前我并没有计划添加新功能，主要还是适配适配Android 11 & MIUI 12.5/13。如果你发现有Mod在Android11，MIUI12.5/13下无法正常工作，欢迎提Issue。（理论上，模块兼容性主要与Android版本相关性较大，与MIUI版本相关性较小，所以对于Android11及以下的MIUI13应该不需做额外适配）
+当前我并没有计划添加新功能，主要还是适配Android 11 & MIUI 12.5/13。如果你发现有Mod在Android11，MIUI12.5/13下无法正常工作，欢迎提Issue。（理论上，模块兼容性主要与Android版本相关性较大，与MIUI版本相关性较小，所以对于Android11及以下的MIUI13应该不需做额外适配）
 
 来自酷安的老哥欢迎在酷安@Strawing提问题。之后打算上架酷安，目前正在申请开发者认证，还在审核中。
 
