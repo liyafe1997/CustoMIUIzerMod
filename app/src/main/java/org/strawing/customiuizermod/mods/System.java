@@ -4250,6 +4250,15 @@ public class System {
     }
 
     public static void HideIconsVPNHook(LoadPackageParam lpparam) {
+        if (Helpers.is125() && Helpers.isRPlus()) {
+            Helpers.findAndHookMethod("com.android.systemui.statusbar.phone.StatusBarSignalPolicy", lpparam.classLoader, "updateVpn", new MethodHook() {
+                @Override
+                protected void before(MethodHookParam param) throws Throwable {
+                    param.setResult(null); //Block the original method, no longer display VPN icon
+                }
+            });
+            return;
+        }
         Helpers.findAndHookMethod("com.android.systemui.statusbar.SignalClusterView", lpparam.classLoader, "apply", new MethodHook() {
             @Override
             protected void after(MethodHookParam param) throws Throwable {
@@ -4275,6 +4284,17 @@ public class System {
     }
 
     public static void HideIconsNoWiFiHook(LoadPackageParam lpparam) {
+        if (Helpers.is125() && Helpers.isRPlus()) {
+            Helpers.findAndHookMethod("com.android.systemui.statusbar.StatusBarWifiView", lpparam.classLoader, "init", new MethodHook() {
+                @Override
+                protected void after(MethodHookParam param) throws Throwable {
+                    View mWifiGroup = (View) XposedHelpers.getObjectField(param.thisObject, "mWifiGroup");
+                    if (mWifiGroup != null) mWifiGroup.setVisibility(View.GONE);
+                }
+            });
+            return;
+
+        }
         Helpers.findAndHookMethod("com.android.systemui.statusbar.SignalClusterView", lpparam.classLoader, "apply", new MethodHook() {
             @Override
             protected void after(MethodHookParam param) throws Throwable {
