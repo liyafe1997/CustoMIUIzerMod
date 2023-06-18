@@ -513,7 +513,7 @@ public class MainFragment extends PreferenceFragmentBase {
             locales = (String[]) getNonSystemLocales.invoke(am);
             if (locales == null) locales = new String[]{};
         } catch (Throwable t) {
-            locales = new String[]{"de", "es", "it", "pt-BR", "ru-RU", "tr", "uk-UK", "zh-CN"};
+            locales = new String[]{"de", "es", "it", "pt-BR", "ru-RU", "tr", "uk-UK", "zh-CN", "ja"};
         }
 
         ArrayList<String> localesArr = new ArrayList<String>(Arrays.asList(locales));

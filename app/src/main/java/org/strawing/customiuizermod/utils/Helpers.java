@@ -174,6 +174,7 @@ public class Helpers {
         put("fr", "24.9");
         put("id", "13.1");
         put("sk", "4.2");
+        put("ja", "100");
     }};
 
     public static final HashSet<String> xposedManagers = new HashSet<String>(Arrays.asList(
