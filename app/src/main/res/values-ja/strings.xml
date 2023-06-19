@@ -4,7 +4,7 @@
   <string name="app_about">このアプリについて</string>
   <string name="about_version">バージョン %1$s</string>
   <string name="about_dev">by Mikanoshi, Mod by Strawing</string>
-  <string name="about_about_mod">CustoMIUIzerModは、MIUI 12.5/13とAndroid 11/12およびそれ以降で使用可能なCustoMIUIzerのMod版です。このアプリはStrawingにより作成されました。</string>
+  <string name="about_about_mod">CustoMIUIzerModは、MIUI 12.5/13とAndroid 11およびそれ以降で使用可能なCustoMIUIzerのMod版です。このアプリはStrawingにより作成されました。</string>
   <string name="about_dynamic">一般的なModの有効化/無効化はソフトリブートが必要です。⟲のマークがある物はデフォルトからカスタムをした値に変更後、1回のソフトリブートが必要です。その後に設定が適用されます。</string>
   <string name="about_unsupported">⨯の付いたModは使用中のデバイスでは非対応です。</string>
   <string name="title_activity_main" translatable="false">@string/app_name</string>
@@ -987,7 +987,7 @@
   <string name="warning_scope">このモジュールはアクティベーションスコープが有効になっているため、一部のModが正常に動作しない可能性があります。</string>
   <string name="warning_unsupported_os">Android %1$sは非対応です。Modが正しく動作しない可能性があります。</string>
   <string name="warning_android_version_adapting_title">Android %1$sが検出されました</string>
-  <string name="warning_android_version_adapting">Android 11/12の機能は調整中です。一部のModが正常に動作しない場合があります。もしも正常に動作がしない、予期せぬエラーが発生した場合はこちらをタップでIssuesから問題を報告してください</string>
+  <string name="warning_android_version_adapting">Android 11の機能は調整中です。一部のModが正常に動作しない場合があります。もしも正常に動作がしない、予期せぬエラーが発生した場合はこちらをタップでIssuesから問題を報告してください</string>
   <string name="open_xposed">Xposedモジュールの管理</string>
   <string name="soft_reboot">ソフトリブート</string>
   <string name="soft_reboot_ask">今すぐにソフトリブートを実行しますか?</string>

@@ -3,7 +3,7 @@
     <string name="app_about">关于</string>
     <string name="about_version">版本：%1$s</string>
     <string name="about_dev">作者：Mikanoshi, Mod by Strawing</string>
-    <string name="about_about_mod">该CustoMIUIzerMod版本由Strawing创建，目的是适配MIUI12.5/13，Android 11/12及未来的更高版本。酷安的朋友欢迎前往酷安@Strawing反馈问题。</string>
+    <string name="about_about_mod">该CustoMIUIzerMod版本由Strawing创建，目的是适配MIUI12.5/13，Android 11及未来的更高版本。酷安的朋友欢迎前往酷安@Strawing反馈问题。</string>
     <string name="about_dynamic">标记有⟲的模块由默认值修改为其他值后只需软重启一次，之后的更改将立即应用；其他选项始终需要软重启。</string>
     <string name="about_unsupported">标记⨯的模块不支持此设备。</string>
     <string name="title_snoozed">通知已延迟</string>
@@ -1041,6 +1041,6 @@
     <string name="launcher_horizwidgetmargin_title">水平小部件边缘</string>
 
     <string name="warning_android_version_adapting_title">检测到Android %1$s</string>
-	<string name="warning_android_version_adapting">该模块目前正在适配Android 11/12，有些Mod可能无法正常工作，如果你发些有Mod不起作用或不符合预期，请点击这里提Issue.</string>
+	<string name="warning_android_version_adapting">该模块目前正在适配Android 11，有些Mod可能无法正常工作，如果你发些有Mod不起作用或不符合预期，请点击这里提Issue.</string>
 
 </resources>
