@@ -1062,7 +1062,7 @@ public class System {
                     if (clock.getId() != clock.getResources().getIdentifier("clock", "id", "com.android.systemui"))
                         return;
                     NumberFormat df = new DecimalFormat("00");
-                    clock.append(":" + df.format(Calendar.getInstance().get(Calendar.SECOND)));
+                    clock.setText(putSecondsIn(clock.getText()));
 
                 }
             });
